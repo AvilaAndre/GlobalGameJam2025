@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://hmkt55eyemji"]
+[gd_scene load_steps=7 format=3 uid="uid://hmkt55eyemji"]
 
-[ext_resource type="Texture2D" uid="uid://dhgk1gbbednt7" path="res://Assets/Island_no_bg-sheet.png" id="1_1o0e5"]
+[ext_resource type="Texture2D" uid="uid://dn87kswmqfuw6" path="res://Assets/Island_no_bg-sheet.png" id="1_1o0e5"]
 [ext_resource type="Script" path="res://scripts/planet_icon.gd" id="1_twbqu"]
 [ext_resource type="PackedScene" uid="uid://cdwafagcywems" path="res://entities/planet_info.tscn" id="3_ft6ka"]
-[ext_resource type="Texture2D" uid="uid://bb2e2ygpridbn" path="res://Assets/emote_exclamation.png" id="4_tjfql"]
+[ext_resource type="Texture2D" uid="uid://csqylui4h0uou" path="res://Assets/Bubble/bubble_full.tres" id="3_px2a0"]
+[ext_resource type="Texture2D" uid="uid://7855aogwshpx" path="res://Assets/emote_exclamation.png" id="4_tjfql"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_regtf"]
 radius = 43.0116
@@ -15,6 +16,12 @@ script = ExtResource("1_twbqu")
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_1o0e5")
+
+[node name="Bubble" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.25098)
+position = Vector2(1, -17)
+scale = Vector2(0.880211, 0.880211)
+texture = ExtResource("3_px2a0")
 
 [node name="PlanetInfo" parent="." instance=ExtResource("3_ft6ka")]
 

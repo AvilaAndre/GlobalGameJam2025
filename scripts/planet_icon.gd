@@ -1,5 +1,7 @@
 extends Node2D
 
+var is_dragging = false
+var drag_offset = Vector2()
 
 func _ready() -> void:
 	$InfoPanel.visible = false
@@ -17,6 +19,8 @@ func _process(_delta: float) -> void:
 		$TextureRect.hide()
 	else: 
 		$TextureRect.show()
+	if is_dragging:
+		check_for_merge()
 
 
 func info() -> Node2D:
@@ -36,3 +40,31 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 		if event.double_click:
 			if Autoload.planets.has(info().id):
 				switch_to_planet(info().id)
+		if event.pressed:
+			# Start dragging
+			is_dragging = true
+			drag_offset = global_position - get_global_mouse_position()
+		else:
+			# Stop dragging
+			is_dragging = false
+			# Handle drop/merge logic
+
+	elif event is InputEventMouseMotion and is_dragging:
+		# Update position while dragging
+		global_position = get_global_mouse_position() + drag_offset
+		
+func check_for_merge() -> void:
+	# Check if the planet overlaps with another planet
+	var area = $Area2D
+	var colliding_planets = area.get_overlapping_areas()
+	print("Colliding with", colliding_planets)
+	for planet_area in colliding_planets:
+		print("Planet area:", planet_area)
+		var planet = planet_area.get_parent()
+		print("Planet:", planet)
+		if planet != self and planet is Node2D:  # Ensure it's a valid planet
+			print("Merging with planet: ", planet.info().id)
+			merge_with(planet)
+
+func merge_with(other_planet: Node2D) -> void:
+	print("Merged with planet ID: ", other_planet.info().id)

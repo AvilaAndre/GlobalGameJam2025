@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7sy5dafirmnf"]
+[gd_scene load_steps=14 format=3 uid="uid://c7sy5dafirmnf"]
 
-[ext_resource type="FontFile" uid="uid://bis83c8bels0u" path="res://Assets/fonts/leaf1.TTF" id="1_kchuh"]
-[ext_resource type="FontFile" uid="uid://bexnwlo4v6ryw" path="res://Assets/fonts/Nature Impact Demo.ttf" id="1_qg4up"]
+[ext_resource type="FontFile" uid="uid://cyw4mycmpmecq" path="res://Assets/fonts/leaf1.TTF" id="1_kchuh"]
+[ext_resource type="FontFile" uid="uid://c65pf8ecmokg8" path="res://Assets/fonts/Nature Impact Demo.ttf" id="1_qg4up"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ttcrk"]
-[ext_resource type="Texture2D" uid="uid://dfetm4paqfj7l" path="res://Assets/buttonLong_beige_pressed.png" id="4_5e3r4"]
-[ext_resource type="Texture2D" uid="uid://bv4t847e5f14w" path="res://Assets/buttonLong_beige.png" id="5_nnt1x"]
+[ext_resource type="Texture2D" uid="uid://ceb1t8vhj635a" path="res://Assets/buttonLong_beige_pressed.png" id="4_5e3r4"]
+[ext_resource type="Texture2D" uid="uid://bbn4mgotf2htn" path="res://Assets/buttonLong_beige.png" id="5_nnt1x"]
+[ext_resource type="Texture2D" uid="uid://dd0sjgj6fgp2u" path="res://Assets/Upgrades/Exit_Button.png" id="6_ppxel"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xobkk"]
 
@@ -37,8 +38,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ttcrk")
 
-[node name="Background Panel" type="Panel" parent="."]
-layout_mode = 1
+[node name="MenuCanvas" type="CanvasLayer" parent="."]
+
+[node name="Background Panel" type="Panel" parent="MenuCanvas"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -46,8 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xobkk")
 
-[node name="Title" type="Label" parent="."]
-layout_mode = 1
+[node name="Title" type="Label" parent="MenuCanvas"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -71,8 +72,7 @@ text = "CiBble
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -86,7 +86,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Start Button" type="Button" parent="VBoxContainer"]
+[node name="Start Button" type="Button" parent="MenuCanvas/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0.847474, 0.847474, 0.847474, 1)
@@ -98,7 +98,19 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_5j0l5")
 theme_override_styles/normal = SubResource("StyleBoxTexture_k8q4i")
 text = "Start Game"
 
-[node name="Quit Button" type="Button" parent="VBoxContainer"]
+[node name="GuideButton" type="Button" parent="MenuCanvas/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.847474, 0.847474, 0.847474, 1)
+theme_override_colors/font_color = Color(0.310617, 0.310617, 0.310617, 1)
+theme_override_fonts/font = ExtResource("1_kchuh")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_f5k8b")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5j0l5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_k8q4i")
+text = "How to Play"
+
+[node name="Quit Button" type="Button" parent="MenuCanvas/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0.847474, 0.847474, 0.847474, 1)
@@ -111,5 +123,58 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cvbiy")
 text = "Quit
 "
 
-[connection signal="pressed" from="VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[node name="Tutorial Panel" type="Panel" parent="MenuCanvas"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -499.0
+offset_top = -300.0
+offset_right = -459.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(25, 15)
+
+[node name="CloseButton" type="TextureButton" parent="MenuCanvas/Tutorial Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -4.4
+offset_top = 0.533331
+offset_right = 123.6
+offset_bottom = 128.533
+grow_horizontal = 0
+scale = Vector2(0.03, 0.05)
+texture_normal = ExtResource("6_ppxel")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuCanvas/Tutorial Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.438054, 0.993792)
+
+[node name="Text1" type="VBoxContainer" parent="MenuCanvas/Tutorial Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label1" type="Label" parent="MenuCanvas/Tutorial Panel/HBoxContainer/Text1"]
+texture_filter = 4
+use_parent_material = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 1
+text = "In Cibbles, you have to help the several asteroid colonies survive. A long ago, brave dinossaurs ventured into space with only a piece of land and a reliable bubble."
+
+[node name="Images1" type="VBoxContainer" parent="MenuCanvas/Tutorial Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="Text2" type="VBoxContainer" parent="MenuCanvas/Tutorial Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="Images2" type="VBoxContainer" parent="MenuCanvas/Tutorial Panel/HBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="MenuCanvas/VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuCanvas/VBoxContainer/GuideButton" to="." method="_on_guide_button_pressed"]
+[connection signal="pressed" from="MenuCanvas/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
