@@ -67,4 +67,37 @@ func check_for_merge() -> void:
 			merge_with(planet)
 
 func merge_with(other_planet: Node2D) -> void:
-	print("Merged with planet ID: ", other_planet.info().id)
+	# Get data from both planets
+	var my_data = info().get_data()
+	var other_data = other_planet.info().get_data()
+
+	print("Merging Planet ID: ", my_data.id, " with Planet ID: ", other_data.id)
+	print("My data: ", my_data)
+	print("Other data: ", other_data)
+	
+	# Sum of resources
+	my_data.food += other_data.food
+	my_data.water += other_data.water
+	my_data.oxygen += other_data.oxygen
+	my_data.population += other_data.population
+
+	# Set the maximum levels of each resource
+	my_data.food_lvl = max(my_data.food_lvl, other_data.food_lvl)
+	my_data.oxygen_lvl = max(my_data.oxygen_lvl, other_data.oxygen_lvl)
+	my_data.water_lvl = max(my_data.water_lvl, other_data.water_lvl)
+	my_data.wood_lvl = max(my_data.wood_lvl, other_data.wood_lvl)
+	my_data.housing_lvl = max(my_data.housing_lvl, other_data.housing_lvl)
+	
+	# Merge alerts: if either planet has the alert, set it to true
+	my_data.planet_alert = my_data.planet_alert or other_data.planet_alert
+	my_data.food_alert = my_data.food_alert or other_data.food_alert
+	my_data.water_alert = my_data.water_alert or other_data.water_alert
+	my_data.oxygen_alert = my_data.oxygen_alert or other_data.oxygen_alert
+	my_data.mine_alert = my_data.mine_alert or other_data.mine_alert
+	
+	other_planet.queue_free()
+	Autoload.planets.erase(other_data.id)
+	
+	
+	# Additional debug to show the final merged result
+	print("Merged planet data: ", my_data)
