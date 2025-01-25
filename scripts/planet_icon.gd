@@ -32,6 +32,3 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 		if event.double_click:
 			if Autoload.planets.has(info().id):
 				switch_to_planet(info().id)
-
-
-
