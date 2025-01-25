@@ -1,15 +1,24 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$InfoPanel.visible = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
 
 func info() -> Node2D:
 	return $PlanetInfo
+
+
+func _on_area_2d_mouse_exited() -> void:
+	$InfoPanel.visible = false
+
+func _on_area_2d_mouse_entered() -> void:
+	$InfoPanel.visible = true
+	$InfoPanel/VBoxContainer/IdLabel.text = "ID: " + str(info().id)
+	$InfoPanel/VBoxContainer/FoodLabel.text = "Food: " + str(info().food)
+	$InfoPanel/VBoxContainer/OxygenLabel.text = "Oxygen: " + str(info().oxygen)
+	$InfoPanel/VBoxContainer/WaterLabel.text = "Water: " + str(info().water)
+
