@@ -71,6 +71,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Placeholder"
 
+[node name="MoraleLabel" type="Label" parent="InfoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Placeholder"
+
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
 offset_left = -17.0

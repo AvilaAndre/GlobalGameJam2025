@@ -101,6 +101,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Water:"
 
+[node name="Label_Morale" type="Label" parent="UI/Control/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Morale:"
+
 [node name="UpgradesButton" type="TextureButton" parent="UI/Control"]
 layout_mode = 1
 anchors_preset = 1

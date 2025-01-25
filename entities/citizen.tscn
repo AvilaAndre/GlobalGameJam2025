@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://cm70jym6lgqag"]
+[gd_scene load_steps=84 format=3 uid="uid://dp3oswrdnuyim"]
 
 [ext_resource type="Texture2D" uid="uid://bgs4nwa3q7j1i" path="res://Assets/citizens/DinoSprites - doux.png" id="1_iaflt"]
 [ext_resource type="Script" path="res://scripts/citizen.gd" id="1_td10l"]
@@ -70,6 +70,54 @@ region = Rect2(48, 0, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_85auy"]
 atlas = ExtResource("3_7syul")
 region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdtyw"]
+atlas = ExtResource("1_iaflt")
+region = Rect2(312, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et67n"]
+atlas = ExtResource("1_iaflt")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_521m3"]
+atlas = ExtResource("1_iaflt")
+region = Rect2(360, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmdey"]
+atlas = ExtResource("2_7dh7o")
+region = Rect2(312, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mry5c"]
+atlas = ExtResource("2_7dh7o")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yhjl"]
+atlas = ExtResource("2_7dh7o")
+region = Rect2(360, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okdvk"]
+atlas = ExtResource("2_31dae")
+region = Rect2(312, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfgqt"]
+atlas = ExtResource("2_31dae")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c88o5"]
+atlas = ExtResource("2_31dae")
+region = Rect2(360, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0t65"]
+atlas = ExtResource("3_7syul")
+region = Rect2(312, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxl7k"]
+atlas = ExtResource("3_7syul")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq1l3"]
+atlas = ExtResource("3_7syul")
+region = Rect2(360, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mu2do"]
 atlas = ExtResource("1_iaflt")
@@ -335,6 +383,62 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hdtyw")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_et67n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_521m3")
+}],
+"loop": false,
+"name": &"die_blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmdey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mry5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yhjl")
+}],
+"loop": true,
+"name": &"die_green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okdvk")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_nfgqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c88o5")
+}],
+"loop": true,
+"name": &"die_red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0t65")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_pxl7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq1l3")
+}],
+"loop": true,
+"name": &"die_yellow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mu2do")
 }, {
 "duration": 1.0,
@@ -529,7 +633,6 @@ scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_nvrcq")
 animation = &"default_blue"
 autoplay = "walk_blue"
-frame_progress = 0.665334
 
 [node name="EmojiBubble" parent="." instance=ExtResource("6_gm4q6")]
 position = Vector2(0, -13)
