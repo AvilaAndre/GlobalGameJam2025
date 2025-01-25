@@ -18,8 +18,8 @@ func _process(_delta: float) -> void:
 func info() -> Node2D:
 	return $PlanetInfo
 
-func switch_to_planet():
-	pass
+func switch_to_planet(id: int):
+	SceneSwitcher.change_scene("res://scenes/planet_focus.tscn", {"id": id})
 
 func _on_area_2d_mouse_exited() -> void:
 	$InfoPanel.visible = false
@@ -30,7 +30,8 @@ func _on_area_2d_mouse_entered() -> void:
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.double_click:
-			switch_to_planet()
+			if Autoload.planets.has(info().id):
+				switch_to_planet(info().id)
 
 
 
