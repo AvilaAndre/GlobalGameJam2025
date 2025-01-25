@@ -1,21 +1,39 @@
-[gd_scene load_steps=12 format=3 uid="uid://dm6ifjkmumjnb"]
+[gd_scene load_steps=15 format=3 uid="uid://dm6ifjkmumjnb"]
 
 [ext_resource type="PackedScene" uid="uid://j7auxi2knis7" path="res://entities/planet.tscn" id="1_3a05x"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="2_dnvmm"]
-[ext_resource type="Texture2D" uid="uid://ln40p8hnlpla" path="res://Assets/Upgrades/Upgrade.png" id="3_l375d"]
-[ext_resource type="Texture2D" uid="uid://dd0sjgj6fgp2u" path="res://Assets/Upgrades/Exit_Button.png" id="4_nqqaw"]
+[ext_resource type="Texture2D" uid="uid://5tc0gc0lkfa1" path="res://Assets/Upgrades/Upgrade.png" id="3_l375d"]
+[ext_resource type="Texture2D" uid="uid://dmedf8d43amwy" path="res://Assets/Upgrades/Exit_Button.png" id="4_nqqaw"]
 [ext_resource type="Script" path="res://scripts/upgrade_panel.gd" id="4_pl7i5"]
-[ext_resource type="Texture2D" uid="uid://32bx0uyjyrx5" path="res://Assets/Upgrades/Oxygen/Oxygen_Upgrade-sheet.png" id="5_4oxay"]
-[ext_resource type="Texture2D" uid="uid://v2dh0lcvalav" path="res://Assets/Upgrades/Oxygen/oxygen_button_blocked.tres" id="7_8v1ri"]
-[ext_resource type="Texture2D" uid="uid://cu45ybiao25sr" path="res://Assets/Upgrades/Food/food_button_default.tres" id="8_0jvi4"]
-[ext_resource type="Texture2D" uid="uid://blteh7s8ru8s7" path="res://Assets/Upgrades/Food/food_button_blocked.tres" id="9_ae4wk"]
+[ext_resource type="Texture2D" uid="uid://ckopyaq0hshji" path="res://Assets/Upgrades/Oxygen/Oxygen_Upgrade-sheet.png" id="5_4oxay"]
+[ext_resource type="Texture2D" uid="uid://dofosot2s1ics" path="res://Assets/Upgrades/Food/Food_Upgrade.png" id="7_k2r4c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7cx8"]
 atlas = ExtResource("5_4oxay")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ejokj"]
 atlas = SubResource("AtlasTexture_c7cx8")
-region = Rect2(0, 0, 128, 0)
+region = Rect2(128, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2csak"]
+atlas = ExtResource("5_4oxay")
+region = Rect2(128, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4j7t"]
+atlas = ExtResource("5_4oxay")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tco5"]
+atlas = ExtResource("7_k2r4c")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl5h2"]
+atlas = ExtResource("7_k2r4c")
+region = Rect2(133, 1, 119, 126)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5km7b"]
+atlas = ExtResource("7_k2r4c")
+region = Rect2(133, 1, 119, 126)
 
 [node name="PlanetFocus" type="Node2D"]
 
@@ -155,7 +173,6 @@ scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_ejokj")
 
 [node name="Oxygen_1_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Oxygen_Tree/Oxygen_Upgrade_1"]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -167,10 +184,9 @@ offset_top = 89.0
 offset_right = 343.0
 offset_bottom = 217.0
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("7_8v1ri")
+texture_normal = SubResource("AtlasTexture_2csak")
 
 [node name="Oxygen_2_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Oxygen_Tree/Oxygen_Upgrade_2"]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -182,10 +198,9 @@ offset_top = 135.0
 offset_right = 313.0
 offset_bottom = 263.0
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("7_8v1ri")
+texture_normal = SubResource("AtlasTexture_t4j7t")
 
 [node name="Oxygen_3_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Oxygen_Tree/Oxygen_Upgrade_3"]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -204,10 +219,9 @@ offset_top = 42.0
 offset_right = 313.0
 offset_bottom = 170.0
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("8_0jvi4")
+texture_normal = SubResource("AtlasTexture_6tco5")
 
 [node name="Food_1_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree/Food_Upgrade_1"]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -219,10 +233,9 @@ offset_top = 89.0
 offset_right = 343.0
 offset_bottom = 217.0
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("9_ae4wk")
+texture_normal = SubResource("AtlasTexture_gl5h2")
 
 [node name="Food_2_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree/Food_Upgrade_2"]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -234,10 +247,9 @@ offset_top = 89.0
 offset_right = 402.0
 offset_bottom = 217.0
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("9_ae4wk")
+texture_normal = SubResource("AtlasTexture_5km7b")
 
 [node name="Food_3_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree/Food_Upgrade_3"]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
