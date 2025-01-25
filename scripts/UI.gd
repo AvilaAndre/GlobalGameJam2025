@@ -1,5 +1,7 @@
 extends Node
 
+func _ready() -> void:
+	$Control/UpgradePanel.visible = false
 
 func _process(_delta: float) -> void:
 	var data = $".".get_parent().get_node("Planet").info().get_data()
@@ -17,3 +19,7 @@ func _on_upgrades_button_pressed():
 	
 func _on_close_button_pressed():
 	$Control/UpgradePanel.visible = false
+	
+
+func _on_texture_button_pressed() -> void:
+	SceneSwitcher.change_scene("res://scenes/space.tscn")
