@@ -1,7 +1,7 @@
 extends Node2D
 
 
-enum State { IDLE, WALKING, RUNNING }
+enum State { IDLE, WALKING, RUNNING, DYING }
 
 @onready var state: State = State.IDLE
 @onready var state_timer: Timer = Timer.new()
@@ -33,12 +33,18 @@ func start_state_timer() -> float:
 
 
 func on_state_timer_timeout():
+	if state == State.DYING:
+		queue_free()
 	choose_random_state()
 
 func choose_random_state():
-	change_state(State.values().pick_random())
+	if state == State.DYING:
+		return
+	change_state([State.IDLE, State.WALKING, State.RUNNING].pick_random())
 
 func change_state(new_state: State):
+	if tween:
+		tween.kill()
 	state = new_state
 
 	match state:
@@ -48,6 +54,9 @@ func change_state(new_state: State):
 		State.WALKING:
 			$AnimatedSprite2D.animation = "walk_" + citizen_color
 			go_to_random_position()
+		State.DYING:
+			$AnimatedSprite2D.animation = "die_" + citizen_color
+			start_state_timer()
 		_:
 			$AnimatedSprite2D.animation = "default_" + citizen_color
 			var duration = start_state_timer()
@@ -57,6 +66,9 @@ func change_state(new_state: State):
 func go_to_random_position(run: bool = false):
 	var path_follow: PathFollow2D = self.get_node_or_null("../../PlanetLimits/PathFollow2D")
 	
+	if !path_follow:
+		choose_random_state()
+
 	path_follow.set_progress_ratio(Autoload.rng.randf_range(0.0, 1.0))
 	var target_position = (path_follow.global_position - self.global_position) * Autoload.rng.randf_range(0.2, 1.0) + self.global_position
 
@@ -72,3 +84,6 @@ func go_to_random_position(run: bool = false):
 
 func on_tween_finished():
 	change_state(State.IDLE)
+
+func die():
+	change_state(State.DYING)

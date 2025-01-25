@@ -49,7 +49,7 @@ func _process(_delta: float) -> void:
 		if data.population > $population.get_child_count():
 			for i in range(0, data.population - $population.get_child_count()):
 				add_citizen()
-		else:
+		elif $population.get_child_count() >= 0:
 			kill_citizen()
 		update_island()
 
@@ -65,7 +65,8 @@ func add_citizen():
 	instance.position.y = Autoload.rng.randf_range(-10.0, 10.0)
 
 func kill_citizen():
-	$population.get_children()[0].queue_free()
+	$population.get_children()[0].die()
+	$population.get_children()[0].reparent(self)
 
 
 func setup_ui():

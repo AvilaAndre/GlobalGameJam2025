@@ -7,12 +7,18 @@ var water: float
 var food: float
 var oxygen: float
 var population: int
+var morale: float
 
 var food_lvl: int
 var oxygen_lvl: int
 var water_lvl: int
 var wood_lvl: int
 var housing_lvl: int
+
+const food_production_rates: Array[float] = [0.0, 1.0, 2.0, 3.0]
+const oxygen_production_rates: Array[float] = [0.0, 1.0, 2.0, 3.0]
+const water_production_rates: Array[float] = [0.0, 1.0, 2.0, 3.0]
+const wood_production_rates: Array[float] = [0.0, 1.0, 2.0, 3.0]
 
 # Alerts
 var planet_alert: bool
@@ -32,10 +38,11 @@ var running : bool = true
 func _init(id_val: int, x: float, y: float) -> void:
 	self.id = id_val
 	self.position = Vector2(x, y)
-	self.water = 0.0
-	self.food = 0.0
-	self.oxygen = 0.0
-	self.population = 0
+	self.water = 10.0
+	self.food = 10.0
+	self.oxygen = 10.0
+	self.population = 1
+	self.morale = 0.5
 
 	self.food_lvl = 0
 	self.oxygen_lvl = 0
@@ -48,4 +55,20 @@ func _init(id_val: int, x: float, y: float) -> void:
 	self.water_alert = false
 	self.oxygen_alert = false
 	self.mine_alert = false
-	alert_timeout_time = 0
+	self.alert_timeout_time = 0
+
+
+func set_food(new_value: float) -> void:
+	self.food = max(0.0, new_value)
+
+func set_oxygen(new_value: float) -> void:
+	self.oxygen = max(0.0, new_value)
+
+func set_water(new_value: float) -> void:
+	self.water = max(0.0, new_value)
+
+func set_population(new_value: int) -> void:
+	self.population = clamp(new_value, 0, 100)
+
+func set_morale(new_value: float) -> void:
+	self.morale = clamp(new_value, 0.0, 1.0)
