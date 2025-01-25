@@ -14,6 +14,15 @@ const food_buttons = [
 	"../UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree/Food_Upgrade_3",
 ]
 
+const water_buttons = [
+	"../UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Water_Tree/Water_Upgrade_1",
+	"../UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Water_Tree/Water_Upgrade_2",
+]
+
+const wood_buttons = [
+	"../UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Wood_Tree/Wood_Upgrade",
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var id = SceneSwitcher.get_param("id")
@@ -42,6 +51,7 @@ func _process(_delta: float) -> void:
 				add_citizen()
 		else:
 			kill_citizen()
+		update_island()
 
 
 func info() -> Node2D:
@@ -62,6 +72,8 @@ func setup_ui():
 	var fields = [
 		[oxygen_buttons, _on_oxygen_upgrade_pressed],
 		[food_buttons, _on_food_upgrade_pressed],
+		[water_buttons, _on_water_upgrade_pressed],
+		[wood_buttons, _on_wood_upgrade_pressed],
 	]
 
 	for field in fields:
@@ -71,7 +83,7 @@ func setup_ui():
 		for i in range(len(paths)):
 			var button: TextureButton = get_node_or_null(paths[i])
 			if !button:
-				printerr("setup: button not found ", i)
+				printerr("setup: button not found ", paths[i])
 				continue
 			button.pressed.connect(trigger.bind(i+1))
 
@@ -82,6 +94,8 @@ func update_ui():
 	var fields = [
 		[oxygen_buttons, data.oxygen_lvl],
 		[food_buttons, data.food_lvl],
+		[water_buttons, data.water_lvl],
+		[wood_buttons, data.wood_lvl],
 	]
 
 	for field in fields:
@@ -91,7 +105,7 @@ func update_ui():
 		for i in range(len(paths)):
 			var button: TextureButton = get_node_or_null(paths[i])
 			if !button:
-				printerr("button not found ", paths[i])
+				printerr("update: button not found ", paths[i])
 				continue
 			var x = 2
 			if i == lvl:
@@ -109,6 +123,8 @@ func update_island():
 	var three_leveled = [
 		[$Oxygen, data.oxygen_lvl],
 		[$Food, data.food_lvl],
+		[$Water, data.water_lvl],
+		[$Wood, data.wood_lvl],
 		[$Housing, data.housing_lvl],
 	]
 
@@ -139,5 +155,23 @@ func _on_food_upgrade_pressed(level: int) -> void:
 
 	if data.food_lvl == level-1:
 		data.food_lvl = level
+
+	update_all()
+
+func _on_water_upgrade_pressed(level: int) -> void:
+	var data = info().get_data()
+	if data == null: return
+
+	if data.water_lvl == level-1:
+		data.water_lvl = level
+
+	update_all()
+
+func _on_wood_upgrade_pressed(level: int) -> void:
+	var data = info().get_data()
+	if data == null: return
+
+	if data.wood_lvl == level-1:
+		data.wood_lvl = level
 
 	update_all()

@@ -10,6 +10,8 @@ var population: int
 
 var food_lvl: int
 var oxygen_lvl: int
+var water_lvl: int
+var wood_lvl: int
 var housing_lvl: int
 
 # Alerts
@@ -37,6 +39,9 @@ func _init(id_val: int, x: float, y: float) -> void:
 
 	self.food_lvl = 0
 	self.oxygen_lvl = 0
+	self.water_lvl = 0
+	self.wood_lvl = 0
+	self.housing_lvl = 0
 	
 	self.planet_alert = false
 	self.food_alert = false

@@ -26,10 +26,13 @@ func _ready() -> void:
 	start_alert_timer(planets[0])
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if running:
-		for i in planets.keys():
-			planets[i].food += _delta
+		for planet in planets.values():
+			planet.food += delta
+			planet.population =  planet.food / 1
+
+			planet.housing_lvl = min(planet.population/10, 3)
 
 func set_planet_alert_timeout(p: PlanetType, x : PlanetType.alert_timeout_type):
 	match x:

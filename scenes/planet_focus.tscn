@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dm6ifjkmumjnb"]
+[gd_scene load_steps=20 format=3 uid="uid://dm6ifjkmumjnb"]
 
 [ext_resource type="PackedScene" uid="uid://j7auxi2knis7" path="res://entities/planet.tscn" id="1_3a05x"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="2_dnvmm"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://scripts/upgrade_panel.gd" id="4_pl7i5"]
 [ext_resource type="Texture2D" uid="uid://ckopyaq0hshji" path="res://Assets/Upgrades/Oxygen/Oxygen_Upgrade-sheet.png" id="5_4oxay"]
 [ext_resource type="Texture2D" uid="uid://dofosot2s1ics" path="res://Assets/Upgrades/Food/Food_Upgrade.png" id="7_k2r4c"]
+[ext_resource type="Texture2D" uid="uid://gxlwrbie2vsd" path="res://Assets/Upgrades/Water/Water_Upgrade.png" id="8_3exnu"]
+[ext_resource type="Texture2D" uid="uid://dd58qomjr56l7" path="res://Assets/Upgrades/Wood/Wood_Upgrade.png" id="8_ilebp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7cx8"]
 atlas = ExtResource("5_4oxay")
@@ -34,6 +36,18 @@ region = Rect2(133, 1, 119, 126)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5km7b"]
 atlas = ExtResource("7_k2r4c")
 region = Rect2(133, 1, 119, 126)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nylmi"]
+atlas = ExtResource("8_3exnu")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekeo1"]
+atlas = ExtResource("8_3exnu")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juojy"]
+atlas = ExtResource("8_ilebp")
+region = Rect2(128, 0, 128, 128)
 
 [node name="PlanetFocus" type="Node2D"]
 
@@ -214,10 +228,10 @@ offset_bottom = 8.0
 
 [node name="Food_Upgrade_1" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree"]
 layout_mode = 0
-offset_left = 185.0
-offset_top = 42.0
-offset_right = 313.0
-offset_bottom = 170.0
+offset_left = 184.0
+offset_top = 58.0
+offset_right = 312.0
+offset_bottom = 186.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_6tco5")
 
@@ -228,10 +242,10 @@ offset_bottom = 23.0
 
 [node name="Food_Upgrade_2" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree"]
 layout_mode = 0
-offset_left = 215.0
-offset_top = 89.0
-offset_right = 343.0
-offset_bottom = 217.0
+offset_left = 214.0
+offset_top = 105.0
+offset_right = 342.0
+offset_bottom = 233.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_gl5h2")
 
@@ -242,14 +256,70 @@ offset_bottom = 23.0
 
 [node name="Food_Upgrade_3" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree"]
 layout_mode = 0
-offset_left = 274.0
-offset_top = 89.0
-offset_right = 402.0
-offset_bottom = 217.0
+offset_left = 273.0
+offset_top = 105.0
+offset_right = 401.0
+offset_bottom = 233.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_5km7b")
 
 [node name="Food_3_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree/Food_Upgrade_3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Water_Tree" type="Control" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow"]
+anchors_preset = 0
+offset_left = 66.0
+offset_top = -32.0
+offset_right = 106.0
+offset_bottom = 8.0
+
+[node name="Water_Upgrade_1" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Water_Tree"]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 123.0
+offset_right = 479.0
+offset_bottom = 251.0
+scale = Vector2(0.5, 0.5)
+texture_normal = SubResource("AtlasTexture_nylmi")
+
+[node name="Water_1_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Water_Tree/Water_Upgrade_1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Water_Upgrade_2" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Water_Tree"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 169.0
+offset_right = 449.0
+offset_bottom = 297.0
+scale = Vector2(0.5, 0.5)
+texture_normal = SubResource("AtlasTexture_ekeo1")
+
+[node name="Water_2_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Water_Tree/Water_Upgrade_2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Wood_Tree" type="Control" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow"]
+anchors_preset = 0
+offset_left = 66.0
+offset_top = -32.0
+offset_right = 106.0
+offset_bottom = 8.0
+
+[node name="Wood_Upgrade" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Wood_Tree"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 172.0
+offset_right = 369.0
+offset_bottom = 300.0
+scale = Vector2(0.5, 0.5)
+texture_normal = SubResource("AtlasTexture_juojy")
+
+[node name="Wood_1_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Wood_Tree/Wood_Upgrade"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
