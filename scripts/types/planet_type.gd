@@ -11,6 +11,19 @@ var population: int
 var food_lvl: int
 var oxygen_lvl: int
 
+# Alerts
+var planet_alert: bool
+
+var building_alert : bool
+var food_alert : bool
+var water_alert : bool
+var oxygen_alert : bool
+var mine_alert : bool
+
+var alert_prob : int
+enum alert_timeout_type { XS, S, M, L, XL }
+var alert_timeout_time : float
+
 var running : bool = true
 
 func _init(id_val: int, x: float, y: float) -> void:
@@ -23,3 +36,10 @@ func _init(id_val: int, x: float, y: float) -> void:
 
 	self.food_lvl = 0
 	self.oxygen_lvl = 0
+	
+	self.planet_alert = false
+	self.food_alert = false
+	self.water_alert = false
+	self.oxygen_alert = false
+	self.mine_alert = false
+	alert_timeout_time = 0

@@ -37,6 +37,7 @@ func _process(_delta: float) -> void:
 
 	$Food.visible = data.food_lvl > 0
 	$Oxygen.visible = data.oxygen_lvl > 0
+	
 
 	print("oxygen", data.oxygen_lvl, "food", data.food_lvl)
 
