@@ -124,6 +124,7 @@ text = "Quit
 "
 
 [node name="Tutorial Panel" type="Panel" parent="MenuCanvas"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -131,39 +132,23 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -499.0
 offset_top = -300.0
-offset_right = -459.0
-offset_bottom = -260.0
+offset_right = 501.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(25, 15)
-
-[node name="CloseButton" type="TextureButton" parent="MenuCanvas/Tutorial Panel"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -4.4
-offset_top = 0.533331
-offset_right = 123.6
-offset_bottom = 128.533
-grow_horizontal = 0
-scale = Vector2(0.03, 0.05)
-texture_normal = ExtResource("6_ppxel")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuCanvas/Tutorial Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.438054, 0.993792)
+offset_right = 1259.0
+offset_bottom = 23.0
 
 [node name="Text1" type="VBoxContainer" parent="MenuCanvas/Tutorial Panel/HBoxContainer"]
 layout_mode = 2
 
 [node name="Label1" type="Label" parent="MenuCanvas/Tutorial Panel/HBoxContainer/Text1"]
 texture_filter = 4
-use_parent_material = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 1
+size_flags_horizontal = 0
 text = "In Cibbles, you have to help the several asteroid colonies survive. A long ago, brave dinossaurs ventured into space with only a piece of land and a reliable bubble."
 
 [node name="Images1" type="VBoxContainer" parent="MenuCanvas/Tutorial Panel/HBoxContainer"]
@@ -175,6 +160,20 @@ layout_mode = 2
 [node name="Images2" type="VBoxContainer" parent="MenuCanvas/Tutorial Panel/HBoxContainer"]
 layout_mode = 2
 
+[node name="CloseButton" type="TextureButton" parent="MenuCanvas/Tutorial Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -4.40001
+offset_top = 0.533331
+offset_right = 123.6
+offset_bottom = 128.533
+grow_horizontal = 0
+scale = Vector2(0.03, 0.05)
+texture_normal = ExtResource("6_ppxel")
+
 [connection signal="pressed" from="MenuCanvas/VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuCanvas/VBoxContainer/GuideButton" to="." method="_on_guide_button_pressed"]
 [connection signal="pressed" from="MenuCanvas/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MenuCanvas/Tutorial Panel/CloseButton" to="." method="_on_close_button_pressed"]

@@ -20,4 +20,9 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_guide_button_pressed():
-	pass # Replace with function body.
+	$"MenuCanvas/Tutorial Panel".visible = true
+
+
+func _on_close_button_pressed():
+	print("Close")
+	$"MenuCanvas/Tutorial Panel".visible = false
