@@ -21,12 +21,6 @@ config/icon="res://icon.svg"
 Autoload="*res://scripts/globals/autoload.gd"
 SceneSwitcher="*res://scripts/globals/scene_switcher.gd"
 
-[file_customization]
-
-folder_colors={
-"res://Assets/": "red"
-}
-
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
