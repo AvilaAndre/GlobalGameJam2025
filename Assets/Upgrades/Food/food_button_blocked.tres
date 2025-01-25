@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://blteh7s8ru8s7"]
+
+[ext_resource type="Texture2D" uid="uid://c17d5yqyq0r5a" path="res://Assets/Upgrades/Food/Food_Upgrade.png" id="1_s7dlf"]
+
+[resource]
+atlas = ExtResource("1_s7dlf")
+region = Rect2(133, 1, 119, 126)

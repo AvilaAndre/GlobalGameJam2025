@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://v2dh0lcvalav"]
+
+[ext_resource type="Texture2D" uid="uid://32bx0uyjyrx5" path="res://Assets/Upgrades/Oxygen/Oxygen_Upgrade-sheet.png" id="1_7osjn"]
+
+[resource]
+atlas = ExtResource("1_7osjn")
+region = Rect2(133, 1, 119, 126)
