@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://j7auxi2knis7" path="res://entities/planet.tscn" id="1_3a05x"]
 [ext_resource type="Script" path="res://scripts/upgrades_button.gd" id="2_dnvmm"]
-[ext_resource type="Texture2D" uid="uid://ln40p8hnlpla" path="res://Assets/Upgrade.png" id="3_l375d"]
-[ext_resource type="Texture2D" uid="uid://dd0sjgj6fgp2u" path="res://Assets/Exit_Button.png" id="4_nqqaw"]
+[ext_resource type="Texture2D" uid="uid://bb1ariva7e6as" path="res://Assets/Upgrade.png" id="3_l375d"]
+[ext_resource type="Texture2D" uid="uid://dm3621r6mydnp" path="res://Assets/Exit_Button.png" id="4_nqqaw"]
 
 [node name="PlanetFocus" type="Node2D"]
 
@@ -23,17 +23,23 @@ offset_top = -94.0
 offset_right = -140.0
 offset_bottom = -54.0
 
-[node name="Label_Oxygen" type="Label" parent="UI/VBoxContainer"]
+[node name="Label_Population" type="Label" parent="UI/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-text = "Oxygen:"
+text = "Population:"
 
 [node name="Label_Food" type="Label" parent="UI/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Food:"
+
+[node name="Label_Oxygen" type="Label" parent="UI/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Oxygen:"
 
 [node name="Label_Water" type="Label" parent="UI/VBoxContainer"]
 texture_filter = 1

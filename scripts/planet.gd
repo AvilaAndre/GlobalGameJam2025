@@ -3,7 +3,10 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("new Planet instantiated")
+	var id = SceneSwitcher.get_param("id")
+	$PlanetInfo.id = id
+
+	print("new Planet instantiated ", id)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
