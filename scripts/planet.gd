@@ -19,6 +19,7 @@ func _process(_delta: float) -> void:
 
 	$Food.visible = data.food_lvl > 0
 	$Oxygen.visible = data.oxygen_lvl > 0
+	
 
 
 func info() -> Node2D:
