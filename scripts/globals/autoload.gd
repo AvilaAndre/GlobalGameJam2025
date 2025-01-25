@@ -2,7 +2,7 @@ extends Node2D
 
 var running : bool = true
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-
+@onready var alertTimer : Timer = Timer.new()
 
 var planets: Dictionary = {
 	0: PlanetType.new(0, 0, 0),
@@ -20,6 +20,10 @@ func _ready() -> void:
 	planets[0].oxygen_lvl = 1
 
 	rng.randomize()
+	set_planet_alert_timeout(planets[0], planets[0].alert_timeout_type.values().pick_random())
+	alertTimer.timeout.connect(on_alert_timer_timeout.bind(planets[0]))
+	add_child(alertTimer)
+	start_alert_timer(planets[0])
 
 
 func _process(_delta: float) -> void:
@@ -27,6 +31,45 @@ func _process(_delta: float) -> void:
 		for i in planets.keys():
 			planets[i].food += _delta
 
+func set_planet_alert_timeout(p: PlanetType, x : PlanetType.alert_timeout_type):
+	match x:
+		p.alert_timeout_type.XS: 
+			p.alert_timeout_time = 15.0
+		p.alert_timeout_type.S:
+			p.alert_timeout_time = 30.0
+		p.alert_timeout_type.M:
+			p.alert_timeout_time = 45.0
+		p.alert_timeout_type.L:
+			p.alert_timeout_time = 60.0
+		p.alert_timeout_type.XL:
+			p.alert_timeout_time = 75.0
+	
+	print("[" + str(p.id) + "] Alert Time: " + str(p.alert_timeout_time))
+	
+func start_alert_timer(p: PlanetType) -> void:		
+	alertTimer.set_wait_time(p.alert_timeout_time)
+	alertTimer.one_shot = true
+	alertTimer.start()
+	print("[" + str(p.id) + "] Timer Started!")
+
+func on_alert_timer_timeout(p: PlanetType):
+	# On timeout check for alert
+	if (randi_range(0,1) == 1):
+		var alert_type = randi_range(0,4)
+		match alert_type:
+			0:
+				p.food_alert = true
+			1:
+				p.water_alert = true
+			2: 
+				p.oxygen_alert = true
+			3:
+				p.building_alert = true
+			4:
+				p.mine_alert = true
+		print("[" + str(p.id) + "] Alert Incoming type: " + str(alert_type))
+			
+	start_alert_timer(p)
 
 func do_if_chance(chance: float):
 	return rng.randf_range(0.0, 1.0) <= chance

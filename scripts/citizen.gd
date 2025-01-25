@@ -71,4 +71,3 @@ func go_to_random_position(run: bool = false):
 
 func on_tween_finished():
 	change_state(State.IDLE)
-
