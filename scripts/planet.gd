@@ -57,9 +57,15 @@ func _process(_delta: float) -> void:
 func info() -> Node2D:
 	return $PlanetInfo
 
+	
 func add_citizen():
 	var instance = citizen_node.instantiate()
+	print("Instance:", instance.possible_types)
+	print("Possible:", info().get_data().dinosaur_types)
+	instance.possible_types = info().get_data().dinosaur_types
 	$population.add_child(instance)
+	
+
 
 	instance.position.x = Autoload.rng.randf_range(-70.0, 70.0)
 	instance.position.y = Autoload.rng.randf_range(-10.0, 10.0)

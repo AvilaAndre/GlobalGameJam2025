@@ -95,6 +95,10 @@ func merge_with(other_planet: Node2D) -> void:
 	my_data.oxygen_alert = my_data.oxygen_alert or other_data.oxygen_alert
 	my_data.mine_alert = my_data.mine_alert or other_data.mine_alert
 	
+	for dinosaur in other_data.dinosaur_types:
+		if not my_data.dinosaur_types.has(dinosaur):
+			my_data.dinosaur_types.append(dinosaur)
+	
 	other_planet.queue_free()
 	Autoload.planets.erase(other_data.id)
 	

@@ -8,6 +8,8 @@ var food: float
 var oxygen: float
 var population: int
 
+var dinosaur_types: Array
+
 var food_lvl: int
 var oxygen_lvl: int
 var water_lvl: int
@@ -29,13 +31,15 @@ var alert_timeout_time : float
 
 var running : bool = true
 
-func _init(id_val: int, x: float, y: float) -> void:
+func _init(id_val: int, x: float, y: float, color: String) -> void:
 	self.id = id_val
 	self.position = Vector2(x, y)
 	self.water = 0.0
 	self.food = 0.0
 	self.oxygen = 0.0
 	self.population = 0
+	
+	self.dinosaur_types = [color]
 
 	self.food_lvl = 0
 	self.oxygen_lvl = 0
