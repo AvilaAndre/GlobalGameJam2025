@@ -17,3 +17,12 @@ func _on_start_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_guide_button_pressed():
+	$MenuCanvas/TutorialPanel.visible = true
+
+
+func _on_close_button_pressed():
+	print("Close")
+	$MenuCanvas/TutorialPanel.visible = false

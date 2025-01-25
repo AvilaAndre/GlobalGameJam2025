@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7sy5dafirmnf"]
+[gd_scene load_steps=15 format=3 uid="uid://c7sy5dafirmnf"]
 
-[ext_resource type="FontFile" uid="uid://f2utpf5shd76" path="res://Assets/fonts/leaf1.TTF" id="1_kchuh"]
-[ext_resource type="FontFile" uid="uid://261qfglr4ny2" path="res://Assets/fonts/Nature Impact Demo.ttf" id="1_qg4up"]
+[ext_resource type="FontFile" uid="uid://cyw4mycmpmecq" path="res://Assets/fonts/leaf1.TTF" id="1_kchuh"]
+[ext_resource type="FontFile" uid="uid://c65pf8ecmokg8" path="res://Assets/fonts/Nature Impact Demo.ttf" id="1_qg4up"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ttcrk"]
-[ext_resource type="Texture2D" uid="uid://bycasxjedmxtn" path="res://Assets/buttonLong_beige_pressed.png" id="4_5e3r4"]
-[ext_resource type="Texture2D" uid="uid://c4iw1wpunl1hu" path="res://Assets/buttonLong_beige.png" id="5_nnt1x"]
-[ext_resource type="AudioStream" uid="uid://do6q2iyp7lm36" path="res://Sound/GGJ25 Sound Ambient.wav" id="6_cf6x3"]
+[ext_resource type="Texture2D" uid="uid://ceb1t8vhj635a" path="res://Assets/buttonLong_beige_pressed.png" id="4_5e3r4"]
+[ext_resource type="Texture2D" uid="uid://bbn4mgotf2htn" path="res://Assets/buttonLong_beige.png" id="5_nnt1x"]
+[ext_resource type="AudioStream" uid="uid://bp5vttu180un7" path="res://Sound/GGJ25 Sound Ambient.wav" id="6_cf6x3"]
+[ext_resource type="Texture2D" uid="uid://dd0sjgj6fgp2u" path="res://Assets/Upgrades/Exit_Button.png" id="6_ppxel"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xobkk"]
 
@@ -38,8 +39,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ttcrk")
 
-[node name="Background Panel" type="Panel" parent="."]
-layout_mode = 1
+[node name="MenuCanvas" type="CanvasLayer" parent="."]
+
+[node name="Background Panel" type="Panel" parent="MenuCanvas"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -47,8 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xobkk")
 
-[node name="Title" type="Label" parent="."]
-layout_mode = 1
+[node name="Title" type="Label" parent="MenuCanvas"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -72,8 +73,7 @@ text = "CiBble
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -87,7 +87,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Start Button" type="Button" parent="VBoxContainer"]
+[node name="Start Button" type="Button" parent="MenuCanvas/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0.847474, 0.847474, 0.847474, 1)
@@ -99,7 +99,19 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_5j0l5")
 theme_override_styles/normal = SubResource("StyleBoxTexture_k8q4i")
 text = "Start Game"
 
-[node name="Quit Button" type="Button" parent="VBoxContainer"]
+[node name="GuideButton" type="Button" parent="MenuCanvas/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.847474, 0.847474, 0.847474, 1)
+theme_override_colors/font_color = Color(0.310617, 0.310617, 0.310617, 1)
+theme_override_fonts/font = ExtResource("1_kchuh")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_f5k8b")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5j0l5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_k8q4i")
+text = "How to Play"
+
+[node name="Quit Button" type="Button" parent="MenuCanvas/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0.847474, 0.847474, 0.847474, 1)
@@ -112,9 +124,28 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cvbiy")
 text = "Quit
 "
 
+[node name="TutorialPanel" type="Panel" parent="MenuCanvas"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CloseButton" type="TextureButton" parent="MenuCanvas/TutorialPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 982.0
+offset_top = 2.0
+offset_right = 1110.0
+offset_bottom = 130.0
+grow_horizontal = 0
+texture_normal = ExtResource("6_ppxel")
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_cf6x3")
 autoplay = true
 
-[connection signal="pressed" from="VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MenuCanvas/VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuCanvas/VBoxContainer/GuideButton" to="." method="_on_guide_button_pressed"]
+[connection signal="pressed" from="MenuCanvas/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MenuCanvas/TutorialPanel/CloseButton" to="." method="_on_close_button_pressed"]

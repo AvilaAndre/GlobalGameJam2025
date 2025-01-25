@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://j7auxi2knis7" path="res://entities/planet.tscn" id="1_3a05x"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="2_dnvmm"]
-[ext_resource type="Texture2D" uid="uid://5tc0gc0lkfa1" path="res://Assets/Upgrades/Upgrade.png" id="3_l375d"]
-[ext_resource type="Texture2D" uid="uid://dmedf8d43amwy" path="res://Assets/Upgrades/Exit_Button.png" id="4_nqqaw"]
+[ext_resource type="Texture2D" uid="uid://ln40p8hnlpla" path="res://Assets/Upgrades/Upgrade.png" id="3_l375d"]
+[ext_resource type="Texture2D" uid="uid://dd0sjgj6fgp2u" path="res://Assets/Upgrades/Exit_Button.png" id="4_nqqaw"]
 [ext_resource type="Script" path="res://scripts/upgrade_panel.gd" id="4_pl7i5"]
-[ext_resource type="Texture2D" uid="uid://ckopyaq0hshji" path="res://Assets/Upgrades/Oxygen/Oxygen_Upgrade-sheet.png" id="5_4oxay"]
-[ext_resource type="Texture2D" uid="uid://dofosot2s1ics" path="res://Assets/Upgrades/Food/Food_Upgrade.png" id="7_k2r4c"]
-[ext_resource type="Texture2D" uid="uid://gxlwrbie2vsd" path="res://Assets/Upgrades/Water/Water_Upgrade.png" id="8_3exnu"]
-[ext_resource type="Texture2D" uid="uid://dd58qomjr56l7" path="res://Assets/Upgrades/Wood/Wood_Upgrade.png" id="8_ilebp"]
-[ext_resource type="Texture2D" uid="uid://b41kjb466a03q" path="res://Assets/arrow_w.png" id="10_msc8i"]
+[ext_resource type="Texture2D" uid="uid://32bx0uyjyrx5" path="res://Assets/Upgrades/Oxygen/Oxygen_Upgrade-sheet.png" id="5_4oxay"]
+[ext_resource type="Texture2D" uid="uid://c17d5yqyq0r5a" path="res://Assets/Upgrades/Food/Food_Upgrade.png" id="7_k2r4c"]
+[ext_resource type="Texture2D" uid="uid://c62p4kd7n2xi1" path="res://Assets/Upgrades/Water/Water_Upgrade.png" id="8_3exnu"]
+[ext_resource type="Texture2D" uid="uid://b08rs1qafepw1" path="res://Assets/Upgrades/Wood/Wood_Upgrade.png" id="8_ilebp"]
+[ext_resource type="Texture2D" uid="uid://b01pfym5uum16" path="res://Assets/arrow_w.png" id="10_msc8i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7cx8"]
 atlas = ExtResource("5_4oxay")
