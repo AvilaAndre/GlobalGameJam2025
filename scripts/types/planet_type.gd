@@ -10,6 +10,7 @@ var population: int
 
 var food_lvl: int
 var oxygen_lvl: int
+var housing_lvl: int
 
 # Alerts
 var planet_alert: bool
