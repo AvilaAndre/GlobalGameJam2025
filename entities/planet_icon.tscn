@@ -43,6 +43,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Placeholder"
 
+[node name="PopulationLabel" type="Label" parent="InfoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Placeholder"
+
 [node name="FoodLabel" type="Label" parent="InfoPanel/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
@@ -58,5 +63,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Placeholder"
 
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
