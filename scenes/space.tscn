@@ -5,4 +5,6 @@
 [node name="Space" type="Node2D"]
 script = ExtResource("1_a0o5i")
 
-[node name="Planet" type="Sprite2D" parent="."]
+[node name="Planets" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
