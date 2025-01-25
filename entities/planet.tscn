@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://j7auxi2knis7"]
 
 [ext_resource type="Script" path="res://scripts/planet.gd" id="1_d3wlt"]
-[ext_resource type="Texture2D" uid="uid://yxoetu0tukml" path="res://Assets/Island_no_bg-sheet.png" id="2_fhy1l"]
-[ext_resource type="Texture2D" uid="uid://bkvmwahcli2sl" path="res://Assets/Overlay_Food_1.png" id="3_j1mt7"]
+[ext_resource type="Texture2D" uid="uid://dn87kswmqfuw6" path="res://Assets/Island_no_bg-sheet.png" id="2_fhy1l"]
+[ext_resource type="Texture2D" uid="uid://cwn4dtm43t8p2" path="res://Assets/Overlay_Food_1.png" id="3_j1mt7"]
 [ext_resource type="PackedScene" uid="uid://cdwafagcywems" path="res://entities/planet_info.tscn" id="4_j3oi0"]
 
 [node name="Planet" type="Node2D"]
