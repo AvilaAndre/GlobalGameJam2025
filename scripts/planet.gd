@@ -8,10 +8,17 @@ func _ready() -> void:
 
 	print("new Planet instantiated ", id)
 
+	$Food.visible = false
+	$Oxygen.visible = false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	var data = info().get_data()
+	if data == null: return
+
+	$Food.visible = data.food_lvl > 0
+	$Oxygen.visible = data.oxygen_lvl > 0
 
 
 func info() -> Node2D:

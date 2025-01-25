@@ -14,6 +14,8 @@ var planets: Dictionary = {
 func _ready() -> void:
 	planets[0].food = 100
 	planets[0].population = 5
+	planets[0].food_lvl = 1
+	planets[0].oxygen_lvl = 1
 
 
 func _process(_delta: float) -> void:
