@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 Autoload="*res://scripts/globals/autoload.gd"
 SceneSwitcher="*res://scripts/globals/scene_switcher.gd"
+Enums="*res://scripts/globals/enums.gd"
 
 [rendering]
 

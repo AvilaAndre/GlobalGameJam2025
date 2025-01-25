@@ -24,7 +24,8 @@ func _process(_delta: float) -> void:
 
 	if data.population != $population.get_child_count():
 		if data.population > $population.get_child_count():
-			add_citizen()
+			for i in range(0, data.population - $population.get_child_count()):
+				add_citizen()
 		else:
 			kill_citizen()
 
@@ -35,7 +36,9 @@ func info() -> Node2D:
 func add_citizen():
 	var instance = citizen_node.instantiate()
 	$population.add_child(instance)
-	# instance.position = $"/root/Autoload".planets[i].position
+
+	instance.position.x = Autoload.rng.randf_range(-70.0, 70.0)
+	instance.position.y = Autoload.rng.randf_range(-10.0, 10.0)
 
 func kill_citizen():
 	$population.get_children()[0].queue_free()

@@ -1,6 +1,8 @@
 extends Node2D
 
 var running : bool = true
+@onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+
 
 var planets: Dictionary = {
 	0: PlanetType.new(0, 0, 0),
@@ -17,6 +19,8 @@ func _ready() -> void:
 	planets[0].food_lvl = 1
 	planets[0].oxygen_lvl = 1
 
+	rng.randomize()
+
 
 func _process(_delta: float) -> void:
 	if running:
@@ -24,3 +28,5 @@ func _process(_delta: float) -> void:
 			planets[i].food += _delta
 
 
+func do_if_chance(chance: float):
+	return rng.randf_range(0.0, 1.0) <= chance

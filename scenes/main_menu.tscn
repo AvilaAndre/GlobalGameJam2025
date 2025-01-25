@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://c7sy5dafirmnf"]
 
-[ext_resource type="FontFile" uid="uid://f2utpf5shd76" path="res://Assets/fonts/leaf1.TTF" id="1_kchuh"]
-[ext_resource type="FontFile" uid="uid://261qfglr4ny2" path="res://Assets/fonts/Nature Impact Demo.ttf" id="1_qg4up"]
+[ext_resource type="FontFile" uid="uid://bis83c8bels0u" path="res://Assets/fonts/leaf1.TTF" id="1_kchuh"]
+[ext_resource type="FontFile" uid="uid://bexnwlo4v6ryw" path="res://Assets/fonts/Nature Impact Demo.ttf" id="1_qg4up"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ttcrk"]
-[ext_resource type="Texture2D" uid="uid://bycasxjedmxtn" path="res://Assets/buttonLong_beige_pressed.png" id="4_5e3r4"]
-[ext_resource type="Texture2D" uid="uid://c4iw1wpunl1hu" path="res://Assets/buttonLong_beige.png" id="5_nnt1x"]
+[ext_resource type="Texture2D" uid="uid://dfetm4paqfj7l" path="res://Assets/buttonLong_beige_pressed.png" id="4_5e3r4"]
+[ext_resource type="Texture2D" uid="uid://bv4t847e5f14w" path="res://Assets/buttonLong_beige.png" id="5_nnt1x"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xobkk"]
 
