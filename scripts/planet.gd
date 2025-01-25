@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 
 	$Food.visible = data.food_lvl > 0
 	$Oxygen.visible = data.oxygen_lvl > 0
+	
 
 	if data.population != $population.get_child_count():
 		if data.population > $population.get_child_count():
