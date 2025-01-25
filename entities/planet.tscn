@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://j7auxi2knis7"]
+[gd_scene load_steps=7 format=3 uid="uid://j7auxi2knis7"]
 
 [ext_resource type="Script" path="res://scripts/planet.gd" id="1_d3wlt"]
 [ext_resource type="Texture2D" uid="uid://yxoetu0tukml" path="res://Assets/Island_no_bg-sheet.png" id="2_fhy1l"]
@@ -6,19 +6,42 @@
 [ext_resource type="PackedScene" uid="uid://cdwafagcywems" path="res://entities/planet_info.tscn" id="4_j3oi0"]
 [ext_resource type="Texture2D" uid="uid://btdb741uugob1" path="res://Assets/Overlay_Woods_1.png" id="5_tosvl"]
 
+[sub_resource type="Curve2D" id="Curve2D_yukfb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 4, -22, 0, 0, 0, 0, -34, -24, 0, 0, 0, 0, -67, -30, 2.82437, 9.0677, -2.82437, -9.0677, -87, -39, 0.511843, 5.03968, -0.511843, -5.03968, -87, -45, 0, 0, 0, 0, -74, -52, 0, 0, 0, 0, -52, -57, 0, 0, 0, 0, -18, -61, 0, 0, 0, 0, 18, -61, 0, 0, 0, 0, 49, -60, 0, 0, 0, 0, 76, -55, 0, 0, 0, 0, 95, -49, 1.81114, -2.83482, -1.81114, 2.83482, 102, -43, 0, 0, 0, 0, 103, -41, 4.80345, -5.66964, -4.80345, 5.66964, 100, -37, 0, 0, 0, 0, 78, -28, 0, 0, 0, 0, 46, -23, 0, 0, 0, 0, 4, -22)
+}
+point_count = 18
+
 [node name="Planet" type="Node2D"]
 script = ExtResource("1_d3wlt")
 
+[node name="PlanetInfo" parent="." instance=ExtResource("4_j3oi0")]
+
 [node name="Island" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, 40)
 texture = ExtResource("2_fhy1l")
 
 [node name="Food" type="Sprite2D" parent="."]
+y_sort_enabled = true
 texture_filter = 1
+position = Vector2(0, 40)
 texture = ExtResource("3_j1mt7")
 
-[node name="PlanetInfo" parent="." instance=ExtResource("4_j3oi0")]
-
 [node name="Oxygen" type="Sprite2D" parent="."]
+y_sort_enabled = true
 texture_filter = 1
+position = Vector2(0, 40)
 texture = ExtResource("5_tosvl")
+
+[node name="population" type="Node2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+
+[node name="PlanetLimits" type="Path2D" parent="."]
+position = Vector2(0, 40)
+curve = SubResource("Curve2D_yukfb")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PlanetLimits"]
+position = Vector2(4, -22)
+rotation = -3.08901
