@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://hmkt55eyemji"]
+
+[ext_resource type="Texture2D" uid="uid://yxoetu0tukml" path="res://Assets/Island_no_bg-sheet.png" id="1_1o0e5"]
+[ext_resource type="Script" path="res://scripts/planet_icon.gd" id="1_twbqu"]
+[ext_resource type="PackedScene" uid="uid://cdwafagcywems" path="res://entities/planet_info.tscn" id="3_ft6ka"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_regtf"]
+radius = 43.0116
+
+[node name="PlanetIcon" type="Node2D"]
+script = ExtResource("1_twbqu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1o0e5")
+
+[node name="PlanetInfo" parent="." instance=ExtResource("3_ft6ka")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_regtf")
+
+[node name="InfoPanel" type="PanelContainer" parent="."]
+clip_contents = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = -95.0
+offset_right = 206.0
+offset_bottom = -15.0
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoPanel"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="IdLabel" type="Label" parent="InfoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Placeholder"
+
+[node name="PopulationLabel" type="Label" parent="InfoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Placeholder"
+
+[node name="FoodLabel" type="Label" parent="InfoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Placeholder"
+
+[node name="OxygenLabel" type="Label" parent="InfoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Placeholder"
+
+[node name="WaterLabel" type="Label" parent="InfoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Placeholder"
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

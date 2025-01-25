@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://f2utpf5shd76" path="res://leaf1.TTF" id="1_kchuh"]
 [ext_resource type="FontFile" uid="uid://261qfglr4ny2" path="res://Nature Impact Demo.ttf" id="1_qg4up"]
-[ext_resource type="Script" path="res://scenes/main_menu_controller.gd" id="1_ttcrk"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_ttcrk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xobkk"]
 
