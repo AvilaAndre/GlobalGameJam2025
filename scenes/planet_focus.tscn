@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://dm6ifjkmumjnb"]
+[gd_scene load_steps=16 format=3 uid="uid://ch5mtajg518tp"]
 
 [ext_resource type="PackedScene" uid="uid://j7auxi2knis7" path="res://entities/planet.tscn" id="1_3a05x"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="2_dnvmm"]
-[ext_resource type="Texture2D" uid="uid://5tc0gc0lkfa1" path="res://Assets/Upgrades/Upgrade.png" id="3_l375d"]
-[ext_resource type="Texture2D" uid="uid://dmedf8d43amwy" path="res://Assets/Upgrades/Exit_Button.png" id="4_nqqaw"]
+[ext_resource type="Texture2D" uid="uid://bkhgu7f5cpms1" path="res://Assets/Upgrades/Upgrade.png" id="3_l375d"]
+[ext_resource type="Texture2D" uid="uid://bp56gyexmm7al" path="res://Assets/Upgrades/Exit_Button.png" id="4_nqqaw"]
 [ext_resource type="Script" path="res://scripts/upgrade_panel.gd" id="4_pl7i5"]
-[ext_resource type="Texture2D" uid="uid://ckopyaq0hshji" path="res://Assets/Upgrades/Oxygen/Oxygen_Upgrade-sheet.png" id="5_4oxay"]
-[ext_resource type="Texture2D" uid="uid://dofosot2s1ics" path="res://Assets/Upgrades/Food/Food_Upgrade.png" id="7_k2r4c"]
+[ext_resource type="Texture2D" uid="uid://dpw8o7f0x5gwn" path="res://Assets/Upgrades/Oxygen/Oxygen_Upgrade-sheet.png" id="5_4oxay"]
+[ext_resource type="Texture2D" uid="uid://dr27tfgyu7a8e" path="res://Assets/Upgrades/Food/Food_Upgrade.png" id="7_k2r4c"]
+[ext_resource type="Texture2D" uid="uid://dv3q11kf74cya" path="res://Assets/arrow_w.png" id="10_msc8i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7cx8"]
 atlas = ExtResource("5_4oxay")
@@ -259,8 +260,25 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="TextureButton" type="TextureButton" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -490.0
+offset_top = -52.0
+offset_right = -386.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("10_msc8i")
+stretch_mode = 0
+
 [connection signal="pressed" from="UI/Control/UpgradesButton" to="UI" method="_on_upgrades_button_pressed"]
 [connection signal="pressed" from="UI/Control/UpgradePanel/CloseButton" to="UI" method="_on_close_button_pressed"]
 [connection signal="pressed" from="UI/Control/UpgradePanel/TabContainer/Resource_tab_Button" to="UI/Control/UpgradePanel" method="_on_resource_tab_button_pressed"]
 [connection signal="pressed" from="UI/Control/UpgradePanel/TabContainer/Event_tab_Button" to="UI/Control/UpgradePanel" method="_on_event_tab_button_pressed"]
 [connection signal="pressed" from="UI/Control/UpgradePanel/TabContainer/Overview_tab_Button" to="UI/Control/UpgradePanel" method="_on_overview_tab_button_pressed"]
+[connection signal="pressed" from="UI/Control/TextureButton" to="UI" method="_on_texture_button_pressed"]
