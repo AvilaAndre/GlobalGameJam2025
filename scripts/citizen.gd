@@ -11,6 +11,7 @@ const SPEED = 10
 const RUN_SPEED = 40
 
 func _ready() -> void:
+	citizen_color = ["blue", "red", "yellow", "green"].pick_random()
 	state_timer.timeout.connect(on_state_timer_timeout)
 	add_child(state_timer)
 
