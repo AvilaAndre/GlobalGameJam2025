@@ -1,23 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7sy5dafirmnf"]
+[gd_scene load_steps=13 format=3 uid="uid://c7sy5dafirmnf"]
 
 [ext_resource type="FontFile" uid="uid://f2utpf5shd76" path="res://leaf1.TTF" id="1_kchuh"]
 [ext_resource type="FontFile" uid="uid://261qfglr4ny2" path="res://Nature Impact Demo.ttf" id="1_qg4up"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_ttcrk"]
+[ext_resource type="Texture2D" uid="uid://bycasxjedmxtn" path="res://buttonLong_beige_pressed.png" id="4_5e3r4"]
+[ext_resource type="Texture2D" uid="uid://c4iw1wpunl1hu" path="res://buttonLong_beige.png" id="5_nnt1x"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xobkk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sines"]
-bg_color = Color(0.396889, 0.396889, 0.396889, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f5k8b"]
+texture = ExtResource("5_nnt1x")
+modulate_color = Color(0.310617, 0.310617, 0.310617, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmeri"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.203922)
-shadow_size = 5
-shadow_offset = Vector2(0, 3.41)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5j0l5"]
+texture = ExtResource("4_5e3r4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k8q4i"]
+texture = ExtResource("5_nnt1x")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wkhjc"]
+texture = ExtResource("5_nnt1x")
+modulate_color = Color(0.309804, 0.309804, 0.309804, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_20ws3"]
+texture = ExtResource("4_5e3r4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cvbiy"]
+texture = ExtResource("5_nnt1x")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -50,6 +59,7 @@ offset_right = 188.5
 offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.690336, 0.640311, 0.493889, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 7
 theme_override_constants/shadow_offset_y = 5
@@ -83,8 +93,9 @@ theme_override_colors/font_hover_color = Color(0.847474, 0.847474, 0.847474, 1)
 theme_override_colors/font_color = Color(0.310617, 0.310617, 0.310617, 1)
 theme_override_fonts/font = ExtResource("1_kchuh")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/hover = SubResource("StyleBoxFlat_sines")
-theme_override_styles/normal = SubResource("StyleBoxFlat_lmeri")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f5k8b")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5j0l5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_k8q4i")
 text = "Start Game"
 
 [node name="Quit Button" type="Button" parent="VBoxContainer"]
@@ -94,8 +105,9 @@ theme_override_colors/font_hover_color = Color(0.847474, 0.847474, 0.847474, 1)
 theme_override_colors/font_color = Color(0.310617, 0.310617, 0.310617, 1)
 theme_override_fonts/font = ExtResource("1_kchuh")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/hover = SubResource("StyleBoxFlat_sines")
-theme_override_styles/normal = SubResource("StyleBoxFlat_lmeri")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wkhjc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_20ws3")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cvbiy")
 text = "Quit
 "
 
