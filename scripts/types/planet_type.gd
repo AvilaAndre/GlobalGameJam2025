@@ -7,6 +7,7 @@ var food      : float
 var water     : float
 var oxygen    : float
 var wood      : float
+var stone     : float
 var population: int
 var morale    : float
 
@@ -16,22 +17,26 @@ var food_lvl   : int
 var oxygen_lvl : int
 var water_lvl  : int
 var wood_lvl   : int
+var stone_lvl  : int
 var housing_lvl: int
 
 var water_delta : float = 0.0
 var food_delta  : float = 0.0
 var oxygen_delta: float = 0.0
 var wood_delta  : float = 0.0
+var stone_delta : float = 0.0
 
 const food_production_rates: Array[float]   = [0.5, 1.0, 2.0, 3.0]
 const oxygen_production_rates: Array[float] = [0.5, 1.0, 2.0, 3.0]
 const water_production_rates: Array[float]  = [0.5, 2.0, 3.0, 3.0]
 const wood_production_rates: Array[float]   = [0.4, 0.8, 2.0, 2.0]
+const stone_production_rates: Array[float]   = [0.4, 0.8, 2.0, 2.0]
 
 const food_upgrade_cost  : Array[float] = [10, 15, 20]
 const oxygen_upgrade_cost: Array[float] = [10, 15, 20]
-const water_upgrade_cost : Array[float] = [10, 15, 20]
-const wood_upgrade_cost  : Array[float] = [10, 15, 20]
+const water_upgrade_cost : Array[float] = [15, 20, 20]
+const wood_upgrade_cost  : Array[float] = [20, 20, 20]
+const stone_upgrade_cost : Array[float] = [20, 20, 20]
 
 # Alerts
 var planet_alert: bool
@@ -55,6 +60,7 @@ func _init(id_val: int, x: float, y: float, color: String) -> void:
 	self.food = 10.0
 	self.oxygen = 10.0
 	self.wood = 10.0
+	self.stone = 10.0
 	self.population = 1
 	self.morale = 0.5
 
@@ -62,6 +68,7 @@ func _init(id_val: int, x: float, y: float, color: String) -> void:
 	self.food_delta = 0.0
 	self.oxygen_delta = 0.0
 	self.wood_delta = 0.0
+	self.stone_delta = 0.0
 
 	self.dinosaur_types = [color]
 
@@ -69,6 +76,7 @@ func _init(id_val: int, x: float, y: float, color: String) -> void:
 	self.oxygen_lvl = 0
 	self.water_lvl = 0
 	self.wood_lvl = 0
+	self.stone_lvl = 0
 	self.housing_lvl = 0
 	
 	self.planet_alert = false
@@ -90,6 +98,9 @@ func set_water(new_value: float) -> void:
 
 func set_wood(new_value: float) -> void:
 	self.wood = max(0.0, new_value)
+
+func set_stone(new_value: float) -> void:
+	self.stone = max(0.0, new_value)
 
 func set_population(new_value: int) -> void:
 	self.population = clamp(new_value, 0, 100)

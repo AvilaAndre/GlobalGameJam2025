@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dm6ifjkmumjnb"]
+[gd_scene load_steps=23 format=3 uid="uid://dm6ifjkmumjnb"]
 
 [ext_resource type="PackedScene" uid="uid://j7auxi2knis7" path="res://entities/planet.tscn" id="1_3a05x"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="2_dnvmm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dofosot2s1ics" path="res://Assets/Upgrades/Food/Food_Upgrade.png" id="7_k2r4c"]
 [ext_resource type="Texture2D" uid="uid://gxlwrbie2vsd" path="res://Assets/Upgrades/Water/Water_Upgrade.png" id="8_3exnu"]
 [ext_resource type="Texture2D" uid="uid://dd58qomjr56l7" path="res://Assets/Upgrades/Wood/Wood_Upgrade.png" id="8_ilebp"]
+[ext_resource type="Texture2D" uid="uid://drui7evex8sef" path="res://Assets/Upgrades/Mine_Upgrade.png" id="9_5llog"]
 [ext_resource type="Texture2D" uid="uid://b41kjb466a03q" path="res://Assets/arrow_w.png" id="10_msc8i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7cx8"]
@@ -44,6 +45,10 @@ region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekeo1"]
 atlas = ExtResource("8_3exnu")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmbsy"]
+atlas = ExtResource("9_5llog")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_juojy"]
@@ -106,6 +111,12 @@ texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Wood:"
+
+[node name="Label_Stone" type="Label" parent="UI/Control/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Stone:"
 
 [node name="Label_Morale" type="Label" parent="UI/Control/VBoxContainer"]
 texture_filter = 1
@@ -192,10 +203,10 @@ offset_bottom = 54.0
 
 [node name="Oxygen_Upgrade_1" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Oxygen_Tree"]
 layout_mode = 0
-offset_left = 185.0
-offset_top = 42.0
-offset_right = 313.0
-offset_bottom = 170.0
+offset_left = 203.0
+offset_top = 18.0
+offset_right = 331.0
+offset_bottom = 146.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_ejokj")
 
@@ -212,10 +223,10 @@ vertical_alignment = 1
 
 [node name="Oxygen_Upgrade_2" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Oxygen_Tree"]
 layout_mode = 0
-offset_left = 215.0
-offset_top = 89.0
-offset_right = 343.0
-offset_bottom = 217.0
+offset_left = 233.0
+offset_top = 65.0
+offset_right = 361.0
+offset_bottom = 193.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_2csak")
 
@@ -232,10 +243,10 @@ vertical_alignment = 1
 
 [node name="Oxygen_Upgrade_3" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Oxygen_Tree"]
 layout_mode = 0
-offset_left = 185.0
-offset_top = 135.0
-offset_right = 313.0
-offset_bottom = 263.0
+offset_left = 203.0
+offset_top = 111.0
+offset_right = 331.0
+offset_bottom = 239.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_t4j7t")
 
@@ -354,6 +365,34 @@ scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_ekeo1")
 
 [node name="Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Water_Tree/Water_Upgrade_2"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 3.0
+offset_right = 78.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 22
+text = "??"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stone_Tree" type="Control" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 132.0
+offset_top = -64.0
+offset_right = 172.0
+offset_bottom = -24.0
+
+[node name="Stone_Upgrade" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Stone_Tree"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 204.0
+offset_right = 227.0
+offset_bottom = 332.0
+scale = Vector2(0.5, 0.5)
+texture_normal = SubResource("AtlasTexture_cmbsy")
+
+[node name="Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Stone_Tree/Stone_Upgrade"]
 layout_mode = 0
 offset_left = 53.0
 offset_top = 3.0

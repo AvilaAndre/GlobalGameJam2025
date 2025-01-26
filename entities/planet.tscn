@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://j7auxi2knis7"]
+[gd_scene load_steps=11 format=3 uid="uid://j7auxi2knis7"]
 
 [ext_resource type="Script" path="res://scripts/planet.gd" id="1_d3wlt"]
 [ext_resource type="Texture2D" uid="uid://yxoetu0tukml" path="res://Assets/Island_no_bg-sheet.png" id="2_fhy1l"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://di0hbqp2isowd" path="res://Assets/overlay_buildings/Lumberjack_house.png" id="6_x0bxd"]
 [ext_resource type="Texture2D" uid="uid://chvcprfg3mjvw" path="res://Assets/overlay_buildings/Overlay_Housing.png" id="7_wgqti"]
 [ext_resource type="Texture2D" uid="uid://r2416202ni87" path="res://Assets/overlay_buildings/Overlay_Water.png" id="8_jvrcl"]
+[ext_resource type="Texture2D" uid="uid://myhrm1a6v2y" path="res://Assets/overlay_buildings/Mine.png" id="9_dkela"]
 
 [sub_resource type="Curve2D" id="Curve2D_yukfb"]
 _data = {
@@ -57,6 +58,10 @@ y_sort_enabled = true
 position = Vector2(0, 40)
 texture = ExtResource("8_jvrcl")
 hframes = 3
+
+[node name="Mine" type="Sprite2D" parent="."]
+position = Vector2(0, 40)
+texture = ExtResource("9_dkela")
 
 [node name="population" type="Node2D" parent="."]
 y_sort_enabled = true

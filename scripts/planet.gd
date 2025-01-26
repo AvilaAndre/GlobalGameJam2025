@@ -23,6 +23,10 @@ const wood_buttons = [
 	"../UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Wood_Tree/Wood_Upgrade",
 ]
 
+const stone_buttons = [
+	"../UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Stone_Tree/Stone_Upgrade",
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var id = SceneSwitcher.get_param("id")
@@ -64,8 +68,6 @@ func add_citizen():
 	print("Possible:", info().get_data().dinosaur_types)
 	instance.possible_types = info().get_data().dinosaur_types
 	$population.add_child(instance)
-	
-
 
 	instance.position.x = Autoload.rng.randf_range(-70.0, 70.0)
 	instance.position.y = Autoload.rng.randf_range(-10.0, 10.0)
@@ -81,6 +83,7 @@ func setup_ui():
 		[food_buttons, _on_food_upgrade_pressed, PlanetType.food_upgrade_cost],
 		[water_buttons, _on_water_upgrade_pressed, PlanetType.water_upgrade_cost],
 		[wood_buttons, _on_wood_upgrade_pressed, PlanetType.wood_upgrade_cost],
+		[stone_buttons, _on_stone_upgrade_pressed, PlanetType.stone_upgrade_cost],
 	]
 
 	for field in fields:
@@ -105,6 +108,7 @@ func update_ui():
 		[food_buttons, data.food_lvl],
 		[water_buttons, data.water_lvl],
 		[wood_buttons, data.wood_lvl],
+		[stone_buttons, data.stone_lvl],
 	]
 
 	for field in fields:
@@ -135,6 +139,7 @@ func update_island():
 		[$Water, data.water_lvl],
 		[$Wood, data.wood_lvl],
 		[$Housing, data.housing_lvl],
+		[$Mine, data.stone_lvl],
 	]
 
 	for field in three_leveled:
@@ -186,5 +191,15 @@ func _on_wood_upgrade_pressed(level: int) -> void:
 	if data.wood_lvl == level-1 && data.food_upgrade_cost[level-1] <= data.wood:
 		data.wood_lvl = level
 		data.wood -= data.wood_upgrade_cost[level-1]
+
+	update_all()
+
+func _on_stone_upgrade_pressed(level: int) -> void:
+	var data = info().get_data()
+	if data == null: return
+
+	if data.stone_lvl == level-1 && data.food_upgrade_cost[level-1] <= data.wood:
+		data.stone_lvl = level
+		data.wood -= data.stone_upgrade_cost[level-1]
 
 	update_all()

@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 			planet.oxygen_delta = planet.oxygen_production_rates[planet.oxygen_lvl] * (min(1, planet.population)) * planet.morale
 			planet.water_delta = planet.water_production_rates[planet.water_lvl] * (min(1, planet.population)) * planet.morale
 			planet.wood_delta = planet.wood_production_rates[planet.wood_lvl] * (min(1, planet.population)) * planet.morale
+			planet.stone_delta = planet.stone_production_rates[planet.stone_lvl] * (min(1, planet.population)) * planet.morale
 
 
 			# consuming
@@ -56,6 +57,7 @@ func _process(delta: float) -> void:
 			planet.set_oxygen(planet.oxygen + planet.oxygen_delta * delta)
 			planet.set_water(planet.water + planet.water_delta * delta)
 			planet.set_wood(planet.wood + planet.wood_delta * delta)
+			planet.set_stone(planet.stone + planet.stone_delta * delta)
 
 
 func on_stats_timer_timeout() -> void:

@@ -13,6 +13,7 @@ func _process(_delta: float) -> void:
 	$Control/VBoxContainer/Label_Oxygen.text = "Oxygen: " + str(snapped(data.oxygen, 0.1)) + " (" + str(snapped(data.oxygen_delta, 0.1)) + ")"
 	$Control/VBoxContainer/Label_Water.text = "Water: " + str(snapped(data.water, 0.1)) + " (" + str(snapped(data.water_delta, 0.1)) + ")"
 	$Control/VBoxContainer/Label_Wood.text = "Wood: " + str(snapped(data.wood, 0.1)) + " (" + str(snapped(data.wood_delta, 0.1)) + ")"
+	$Control/VBoxContainer/Label_Stone.text = "Stone: " + str(snapped(data.stone, 0.1)) + " (" + str(snapped(data.stone_delta, 0.1)) + ")"
 	$Control/VBoxContainer/Label_Morale.text = "Morale: " + str(snapped(100*data.morale, 1)) + "%"
 
 func _on_upgrades_button_pressed():
