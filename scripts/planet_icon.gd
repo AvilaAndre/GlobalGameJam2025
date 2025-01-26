@@ -103,6 +103,8 @@ func merge_with(other_planet: Node2D) -> void:
 	for dinosaur in other_data.dinosaur_types:
 		if not my_data.dinosaur_types.has(dinosaur):
 			my_data.dinosaur_types.append(dinosaur)
+			
+	my_data.morale = (my_data.morale + other_data.morale) / 2
 	
 	other_planet.queue_free()
 	Autoload.planets.erase(other_data.id)
