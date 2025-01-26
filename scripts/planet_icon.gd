@@ -140,3 +140,6 @@ func merge_with(other_planet: Node2D) -> void:
 	Autoload.planets.erase(other_data.id)
 	
 	update_species_visibility(my_data.dinosaur_types)
+	
+	#Sound section
+	AudioPlayer.play_merge()
