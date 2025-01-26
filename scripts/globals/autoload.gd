@@ -207,6 +207,7 @@ func on_alert_timer_timeout(p: PlanetType, t: Timer):
 				4:
 					p.building_alert = true
 			start_danger_timer(p, t)
+			AudioPlayer.play_alert_start()
 		else:
 			start_alert_timer(p, t)
 	elif p.food_alert || p.water_alert || p.oxygen_alert || p.building_alert || p.mine_alert:
@@ -235,6 +236,7 @@ func on_alert_timer_timeout(p: PlanetType, t: Timer):
 			print("Something aint right")
 		
 		start_alert_timer(p, t)
+		AudioPlayer.play_alert_unres()
 	else:
 		start_alert_timer(p,t)
 
