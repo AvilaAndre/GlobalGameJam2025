@@ -25,7 +25,7 @@ AudioPlayer="*res://scenes/AudioScene.tscn"
 
 [display]
 
-window/stretch/aspect="keep_height"
+window/stretch/mode="viewport"
 
 [input]
 
