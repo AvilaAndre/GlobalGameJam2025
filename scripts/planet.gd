@@ -237,3 +237,60 @@ func _on_water_button_alert_input_event(viewport: Node, event: InputEvent, shape
 func _on_mine_button_alert_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton && event.button_index == 1:
 		$"../UI/Control/AlertMinePanel".show()
+
+
+func _on_alert_house_pay() -> void:
+	var data: PlanetType = info().get_data()
+	if data == null: return
+
+	if data.building_alert && data.stone >= 5:
+		data.stone -= 5
+		data.building_alert = false
+		close_alert()
+
+func _on_alert_mine_pay() -> void:
+	var data: PlanetType = info().get_data()
+	if data == null: return
+
+	if data.mine_alert && data.wood >= 10:
+		data.wood -= 10
+		data.mine_alert = false
+		close_alert()
+
+
+func _on_alert_oxygen_pay() -> void:
+	var data: PlanetType = info().get_data()
+	if data == null: return
+
+	if data.oxygen_alert && data.water >= 10:
+		data.water -= 10
+		data.oxygen_alert = false
+		close_alert()
+
+
+func _on_alert_food_pay() -> void:
+	var data: PlanetType = info().get_data()
+	if data == null: return
+
+	if data.food_alert && data.food >= 20:
+		data.food -= 20
+		data.food_alert = false
+		close_alert()
+
+func _on_alert_water_pay() -> void:
+	var data: PlanetType = info().get_data()
+	if data == null: return
+
+	if data.water_alert && data.stone >= 5:
+		data.stone -= 5
+		data.water_alert = false
+		close_alert()
+
+
+func close_alert():
+	$"../UI/Control/UpgradePanel".visible = false
+	$"../UI/Control/AlertFoodPanel".hide()
+	$"../UI/Control/AlertWaterPanel".hide()
+	$"../UI/Control/AlertOxygenPanel".hide()
+	$"../UI/Control/AlertHousePanel".hide()
+	$"../UI/Control/AlertMinePanel".hide()

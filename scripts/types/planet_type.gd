@@ -30,7 +30,7 @@ const food_production_rates: Array[float]   = [0.5, 1.0, 2.0, 3.0]
 const oxygen_production_rates: Array[float] = [0.5, 1.0, 2.0, 3.0]
 const water_production_rates: Array[float]  = [0.5, 2.0, 3.0, 3.0]
 const wood_production_rates: Array[float]   = [0.4, 0.8, 2.0, 2.0]
-const stone_production_rates: Array[float]   = [0.4, 0.8, 2.0, 2.0]
+const stone_production_rates: Array[float]  = [0.2, 0.4, 2.0, 2.0]
 
 const food_upgrade_cost  : Array[float] = [10, 15, 20]
 const oxygen_upgrade_cost: Array[float] = [10, 15, 20]
@@ -60,7 +60,7 @@ func _init(id_val: int, x: float, y: float, color: String) -> void:
 	self.food = 10.0
 	self.oxygen = 10.0
 	self.wood = 10.0
-	self.stone = 10.0
+	self.stone = 0.0
 	self.population = 1
 	self.morale = 0.5
 
