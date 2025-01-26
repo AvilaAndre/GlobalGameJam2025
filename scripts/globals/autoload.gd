@@ -8,8 +8,8 @@ var planets: Dictionary = {
 	0: PlanetType.new(0, 0, 0, "blue"),
 	2: PlanetType.new(2, -100.0, 200.0, "red"),
 	1: PlanetType.new(1, -300.0, 0, "yellow"),
-	3: PlanetType.new(3, 240.0, -400.0, "green"),
-	4: PlanetType.new(4, 350.0, 100.0, "blue"),
+	3: PlanetType.new(3, 240.0, -200.0, "green"),
+	4: PlanetType.new(4, 300.0, 100.0, "blue"),
 	5: PlanetType.new(5, -50.0, -200.0, "red"),
 }
 

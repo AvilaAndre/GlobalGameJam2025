@@ -30,7 +30,7 @@ const food_production_rates: Array[float]   = [0.5, 1.0, 2.0, 3.0]
 const oxygen_production_rates: Array[float] = [0.5, 1.0, 2.0, 3.0]
 const water_production_rates: Array[float]  = [0.5, 2.0, 3.0, 3.0]
 const wood_production_rates: Array[float]   = [0.4, 0.8, 2.0, 2.0]
-const stone_production_rates: Array[float]  = [0.2, 0.4, 2.0, 2.0]
+const stone_production_rates: Array[float]  = [0.0, 0.4, 2.0, 2.0]
 
 const food_upgrade_cost  : Array[float] = [10, 15, 20]
 const oxygen_upgrade_cost: Array[float] = [10, 15, 20]

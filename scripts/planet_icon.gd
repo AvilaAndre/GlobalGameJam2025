@@ -50,9 +50,13 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 			is_dragging = false
 			# Handle drop/merge logic
 
-	elif event is InputEventMouseMotion and is_dragging:
+	elif event is InputEventMouseMotion and is_dragging and Input.is_action_pressed("mouse_left"):
 		# Update position while dragging
 		global_position = get_global_mouse_position() + drag_offset
+		var data = info().get_data()
+		if data:
+			data.position = global_position
+
 		
 func check_for_merge() -> void:
 	# Check if the planet overlaps with another planet
