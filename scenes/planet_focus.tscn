@@ -199,10 +199,16 @@ offset_bottom = 170.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_ejokj")
 
-[node name="Oxygen_1_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Oxygen_Tree/Oxygen_Upgrade_1"]
+[node name="Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Oxygen_Tree/Oxygen_Upgrade_1"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 53.0
+offset_top = 3.0
+offset_right = 78.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 22
+text = "??"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Oxygen_Upgrade_2" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Oxygen_Tree"]
 layout_mode = 0
@@ -213,10 +219,16 @@ offset_bottom = 217.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_2csak")
 
-[node name="Oxygen_2_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Oxygen_Tree/Oxygen_Upgrade_2"]
+[node name="Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Oxygen_Tree/Oxygen_Upgrade_2"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 53.0
+offset_top = 3.0
+offset_right = 78.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 22
+text = "??"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Oxygen_Upgrade_3" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Oxygen_Tree"]
 layout_mode = 0
@@ -227,10 +239,16 @@ offset_bottom = 263.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_t4j7t")
 
-[node name="Oxygen_3_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Oxygen_Tree/Oxygen_Upgrade_3"]
+[node name="Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Oxygen_Tree/Oxygen_Upgrade_3"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 53.0
+offset_top = 3.0
+offset_right = 78.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 22
+text = "??"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Food_Tree" type="Control" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow"]
 anchors_preset = 0
@@ -248,10 +266,16 @@ offset_bottom = 186.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_6tco5")
 
-[node name="Food_1_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree/Food_Upgrade_1"]
+[node name="Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree/Food_Upgrade_1"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 53.0
+offset_top = 3.0
+offset_right = 78.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 22
+text = "??"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Food_Upgrade_2" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree"]
 layout_mode = 0
@@ -262,10 +286,16 @@ offset_bottom = 233.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_gl5h2")
 
-[node name="Food_2_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree/Food_Upgrade_2"]
+[node name="Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree/Food_Upgrade_2"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 48.0
+offset_top = 3.0
+offset_right = 73.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 22
+text = "??"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Food_Upgrade_3" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree"]
 layout_mode = 0
@@ -276,10 +306,16 @@ offset_bottom = 233.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_5km7b")
 
-[node name="Food_3_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree/Food_Upgrade_3"]
+[node name="Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Food_Tree/Food_Upgrade_3"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 48.0
+offset_top = 3.0
+offset_right = 73.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 22
+text = "??"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Water_Tree" type="Control" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow"]
 anchors_preset = 0
@@ -297,10 +333,16 @@ offset_bottom = 251.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_nylmi")
 
-[node name="Water_1_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Water_Tree/Water_Upgrade_1"]
+[node name="Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Water_Tree/Water_Upgrade_1"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 53.0
+offset_top = 3.0
+offset_right = 78.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 22
+text = "??"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Water_Upgrade_2" type="TextureButton" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Water_Tree"]
 layout_mode = 0
@@ -311,10 +353,16 @@ offset_bottom = 297.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_ekeo1")
 
-[node name="Water_2_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Water_Tree/Water_Upgrade_2"]
+[node name="Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Water_Tree/Water_Upgrade_2"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 53.0
+offset_top = 3.0
+offset_right = 78.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 22
+text = "??"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Wood_Tree" type="Control" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow"]
 anchors_preset = 0
@@ -332,10 +380,16 @@ offset_bottom = 300.0
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("AtlasTexture_juojy")
 
-[node name="Wood_1_Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Wood_Tree/Wood_Upgrade"]
+[node name="Label" type="Label" parent="UI/Control/UpgradePanel/WindowContainer/ResourceWindow/Wood_Tree/Wood_Upgrade"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 53.0
+offset_top = 3.0
+offset_right = 78.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 22
+text = "??"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EventWindow" type="Control" parent="UI/Control/UpgradePanel/WindowContainer"]
 anchors_preset = 0

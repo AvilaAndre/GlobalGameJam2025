@@ -77,15 +77,16 @@ func kill_citizen():
 
 func setup_ui():
 	var fields = [
-		[oxygen_buttons, _on_oxygen_upgrade_pressed],
-		[food_buttons, _on_food_upgrade_pressed],
-		[water_buttons, _on_water_upgrade_pressed],
-		[wood_buttons, _on_wood_upgrade_pressed],
+		[oxygen_buttons, _on_oxygen_upgrade_pressed, PlanetType.oxygen_upgrade_cost],
+		[food_buttons, _on_food_upgrade_pressed, PlanetType.food_upgrade_cost],
+		[water_buttons, _on_water_upgrade_pressed, PlanetType.water_upgrade_cost],
+		[wood_buttons, _on_wood_upgrade_pressed, PlanetType.wood_upgrade_cost],
 	]
 
 	for field in fields:
 		var paths = field[0]
 		var trigger = field[1]
+		var costs = field[2]
 
 		for i in range(len(paths)):
 			var button: TextureButton = get_node_or_null(paths[i])
@@ -93,6 +94,7 @@ func setup_ui():
 				printerr("setup: button not found ", paths[i])
 				continue
 			button.pressed.connect(trigger.bind(i+1))
+			button.get_node("Label").text = str(costs[i])
 
 func update_ui():
 	var data = info().get_data()
@@ -151,8 +153,9 @@ func _on_oxygen_upgrade_pressed(level: int) -> void:
 	var data = info().get_data()
 	if data == null: return
 
-	if data.oxygen_lvl == level-1:
+	if data.oxygen_lvl == level-1 && data.oxygen_upgrade_cost[level-1] <= data.wood:
 		data.oxygen_lvl = level
+		data.wood -= data.oxygen_upgrade_cost[level-1]
 
 	update_all()
 
@@ -160,8 +163,9 @@ func _on_food_upgrade_pressed(level: int) -> void:
 	var data = info().get_data()
 	if data == null: return
 
-	if data.food_lvl == level-1:
+	if data.food_lvl == level-1 && data.food_upgrade_cost[level-1] <= data.wood:
 		data.food_lvl = level
+		data.wood -= data.food_upgrade_cost[level-1]
 
 	update_all()
 
@@ -169,8 +173,9 @@ func _on_water_upgrade_pressed(level: int) -> void:
 	var data = info().get_data()
 	if data == null: return
 
-	if data.water_lvl == level-1:
+	if data.water_lvl == level-1 && data.food_upgrade_cost[level-1] <= data.wood:
 		data.water_lvl = level
+		data.wood -= data.water_upgrade_cost[level-1]
 
 	update_all()
 
@@ -178,7 +183,8 @@ func _on_wood_upgrade_pressed(level: int) -> void:
 	var data = info().get_data()
 	if data == null: return
 
-	if data.wood_lvl == level-1:
+	if data.wood_lvl == level-1 && data.food_upgrade_cost[level-1] <= data.wood:
 		data.wood_lvl = level
+		data.wood -= data.wood_upgrade_cost[level-1]
 
 	update_all()

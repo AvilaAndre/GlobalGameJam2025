@@ -55,6 +55,7 @@ func _process(delta: float) -> void:
 			planet.set_food(planet.food + planet.food_delta * delta)
 			planet.set_oxygen(planet.oxygen + planet.oxygen_delta * delta)
 			planet.set_water(planet.water + planet.water_delta * delta)
+			planet.set_wood(planet.wood + planet.wood_delta * delta)
 
 
 func on_stats_timer_timeout() -> void:
@@ -62,7 +63,7 @@ func on_stats_timer_timeout() -> void:
 		for planet in planets.values():
 			if planet.food == 0 || planet.water == 0 || planet.oxygen == 0 || planet.morale < 0.2:
 				planet.set_population(planet.population - 1)
-				planet.set_morale(planet.morale - 0.1)
+				planet.set_morale(planet.morale - 0.05)
 			elif planet.food > planet.population && planet.water > planet.population && planet.oxygen > planet.population && planet.morale > 0.75:
 				planet.set_population(planet.population + 1)
 

@@ -1,21 +1,21 @@
 class_name PlanetType
 
 
-var id: int
-var position: Vector2
-var food: float
-var water: float
-var oxygen: float
-var wood: float
+var id        : int
+var position  : Vector2
+var food      : float
+var water     : float
+var oxygen    : float
+var wood      : float
 var population: int
-var morale: float
+var morale    : float
 
 var dinosaur_types: Array
 
-var food_lvl: int
-var oxygen_lvl: int
-var water_lvl: int
-var wood_lvl: int
+var food_lvl   : int
+var oxygen_lvl : int
+var water_lvl  : int
+var wood_lvl   : int
 var housing_lvl: int
 
 var water_delta : float = 0.0
@@ -23,19 +23,24 @@ var food_delta  : float = 0.0
 var oxygen_delta: float = 0.0
 var wood_delta  : float = 0.0
 
-const food_production_rates: Array[float] = [0.5, 1.0, 2.0, 3.0]
+const food_production_rates: Array[float]   = [0.5, 1.0, 2.0, 3.0]
 const oxygen_production_rates: Array[float] = [0.5, 1.0, 2.0, 3.0]
-const water_production_rates: Array[float] = [0.5, 2.0, 3.0, 3.0]
-const wood_production_rates: Array[float] = [0.5, 1.0, 2.0, 3.0]
+const water_production_rates: Array[float]  = [0.5, 2.0, 3.0, 3.0]
+const wood_production_rates: Array[float]   = [0.4, 0.8, 2.0, 2.0]
+
+const food_upgrade_cost  : Array[float] = [10, 15, 20]
+const oxygen_upgrade_cost: Array[float] = [10, 15, 20]
+const water_upgrade_cost : Array[float] = [10, 15, 20]
+const wood_upgrade_cost  : Array[float] = [10, 15, 20]
 
 # Alerts
 var planet_alert: bool
 
-var building_alert : bool
-var food_alert : bool
-var water_alert : bool
-var oxygen_alert : bool
-var mine_alert : bool
+var building_alert: bool
+var food_alert    : bool
+var water_alert   : bool
+var oxygen_alert  : bool
+var mine_alert    : bool
 
 var alert_prob : int
 enum alert_timeout_type { XS, S, M, L, XL }
