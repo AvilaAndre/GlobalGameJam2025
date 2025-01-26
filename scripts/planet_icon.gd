@@ -8,6 +8,9 @@ func _ready() -> void:
 	$InfoPanel.visible = false
 	$Bubble.visible = true  # Ensure the bubble is visible initially
 	$Area2D.monitoring = true  # Keep the Area2D monitoring for overlaps
+	var data = info().get_data()
+	print("Updating dino info for:", data.id)
+	update_species_visibility(data.dinosaur_types)
 
 func _process(_delta: float) -> void:
 	var data = info().get_data()
@@ -25,6 +28,7 @@ func _process(_delta: float) -> void:
 		$TextureRect.hide()
 	else: 
 		$TextureRect.show()
+		
 
 	# Check if the planet should "die"
 	if data.population <= 0 and not is_dead:
@@ -33,6 +37,28 @@ func _process(_delta: float) -> void:
 	# Handle dragging
 	if is_dragging:
 		check_for_merge()
+
+
+func update_species_visibility(dino_types: Array) -> void:
+	print("Dinossaur Types:", dino_types)
+	
+	for type in dino_types:
+		if type == "red":
+			$Pop_Icons/red.visible = true
+			print("making red visible")
+		elif type == "blue":
+			$Pop_Icons/blue.visible = true
+			print("making blue visible")
+		elif type == "yellow":
+			$Pop_Icons/yellow.visible = true
+			print("making yellow visible")
+		elif type == "green":
+			$Pop_Icons/green.visible = true
+			print("making green visible")
+		
+
+
+
 
 func trigger_bubble_burst() -> void:
 	is_dead = true  # Prevent multiple triggers
@@ -106,6 +132,9 @@ func merge_with(other_planet: Node2D) -> void:
 		if not my_data.dinosaur_types.has(dinosaur):
 			my_data.dinosaur_types.append(dinosaur)
 			
+	
 	my_data.morale = (my_data.morale + other_data.morale) / 2
 	other_planet.queue_free()
 	Autoload.planets.erase(other_data.id)
+	
+	update_species_visibility(my_data.dinosaur_types)
