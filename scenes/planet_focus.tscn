@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://dm6ifjkmumjnb"]
+[gd_scene load_steps=26 format=3 uid="uid://dm6ifjkmumjnb"]
 
 [ext_resource type="PackedScene" uid="uid://j7auxi2knis7" path="res://entities/planet.tscn" id="1_3a05x"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="2_dnvmm"]
+[ext_resource type="Texture2D" uid="uid://c5enywnqgqspm" path="res://Assets/backgrounds/Space_Stars2.png" id="2_yqxrb"]
 [ext_resource type="Texture2D" uid="uid://ln40p8hnlpla" path="res://Assets/Upgrades/Upgrade.png" id="3_l375d"]
 [ext_resource type="Texture2D" uid="uid://dd0sjgj6fgp2u" path="res://Assets/Upgrades/Exit_Button.png" id="4_nqqaw"]
 [ext_resource type="Script" path="res://scripts/upgrade_panel.gd" id="4_pl7i5"]
@@ -67,6 +68,27 @@ position = Vector2(0, 20)
 [node name="Camera2D" type="Camera2D" parent="."]
 texture_filter = 1
 zoom = Vector2(3, 3)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+show_behind_parent = true
+repeat_size = Vector2(64, 64)
+autoscroll = Vector2(0, 16)
+repeat_times = 30
+ignore_camera_scroll = true
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yqxrb")
+stretch_mode = 1
 
 [node name="FoodButtonAlert" type="Area2D" parent="."]
 visible = false
