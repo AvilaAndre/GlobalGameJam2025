@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c7sy5dafirmnf"]
+[gd_scene load_steps=20 format=3 uid="uid://c7sy5dafirmnf"]
 
 [ext_resource type="FontFile" uid="uid://cyw4mycmpmecq" path="res://Assets/fonts/leaf1.TTF" id="1_kchuh"]
 [ext_resource type="FontFile" uid="uid://c65pf8ecmokg8" path="res://Assets/fonts/Nature Impact Demo.ttf" id="1_qg4up"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ceb1t8vhj635a" path="res://Assets/buttonLong_beige_pressed.png" id="4_5e3r4"]
 [ext_resource type="Texture2D" uid="uid://bbn4mgotf2htn" path="res://Assets/buttonLong_beige.png" id="5_nnt1x"]
 [ext_resource type="Texture2D" uid="uid://dd0sjgj6fgp2u" path="res://Assets/Upgrades/Exit_Button.png" id="6_ppxel"]
+[ext_resource type="Texture2D" uid="uid://0bfiwxgeuwyg" path="res://Assets/All_built.png" id="7_qsa14"]
 [ext_resource type="AudioStream" uid="uid://dl2hh1qc8qqby" path="res://Sound/GGJ25 - UI Next.wav" id="8_ldpnj"]
 [ext_resource type="Texture2D" uid="uid://c5enywnqgqspm" path="res://Assets/backgrounds/Space_Stars2.png" id="8_udl1y"]
 [ext_resource type="AudioStream" uid="uid://b7xk0pkfid8av" path="res://Sound/GGJ25 - UI Back.wav" id="9_f05pv"]
@@ -31,6 +32,11 @@ texture = ExtResource("4_5e3r4")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cvbiy"]
 texture = ExtResource("5_nnt1x")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mf23w"]
+texture = ExtResource("8_udl1y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dghq1"]
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -129,20 +135,72 @@ text = "Quit
 
 [node name="TutorialPanel" type="Panel" parent="MenuCanvas"]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mf23w")
 
 [node name="CloseButton" type="TextureButton" parent="MenuCanvas/TutorialPanel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 982.0
-offset_top = 2.0
-offset_right = 1110.0
-offset_bottom = 130.0
+offset_left = -128.0
+offset_bottom = 128.0
 grow_horizontal = 0
 texture_normal = ExtResource("6_ppxel")
+
+[node name="Title" type="Label" parent="MenuCanvas/TutorialPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.5
+offset_top = -266.0
+offset_right = 220.5
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxTexture_dghq1")
+text = "How to Play"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="MenuCanvas/TutorialPanel"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 250.0
+offset_right = 795.0
+offset_bottom = 309.0
+theme_override_font_sizes/font_size = 30
+text = "Experience is the best teacher
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MenuCanvas/TutorialPanel"]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 289.0
+offset_right = 788.0
+offset_bottom = 348.0
+theme_override_font_sizes/font_size = 20
+text = "- The Pyromaniac Wizards Team
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MenuCanvas/TutorialPanel"]
+layout_mode = 0
+offset_left = 479.0
+offset_top = 358.0
+offset_right = 735.0
+offset_bottom = 614.0
+texture = ExtResource("7_qsa14")
 
 [node name="AudioStreamPlayer2D Next" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_ldpnj")
