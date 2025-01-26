@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://j7auxi2knis7"]
 
 [ext_resource type="Script" path="res://scripts/planet.gd" id="1_d3wlt"]
-[ext_resource type="Texture2D" uid="uid://yxoetu0tukml" path="res://Assets/Island_no_bg-sheet.png" id="2_fhy1l"]
-[ext_resource type="Texture2D" uid="uid://dkfkec2tbo1na" path="res://Assets/overlay_buildings/Overlay_Food.png" id="4_625lu"]
+[ext_resource type="Texture2D" uid="uid://dhgk1gbbednt7" path="res://Assets/Island_no_bg-sheet.png" id="2_fhy1l"]
+[ext_resource type="Texture2D" uid="uid://bwk8io7cog15j" path="res://Assets/overlay_buildings/Overlay_Food.png" id="4_625lu"]
 [ext_resource type="PackedScene" uid="uid://cdwafagcywems" path="res://entities/planet_info.tscn" id="4_j3oi0"]
-[ext_resource type="Texture2D" uid="uid://cjbvvpijc1ov5" path="res://Assets/overlay_buildings/Overlay_Woods.png" id="5_p204h"]
-[ext_resource type="Texture2D" uid="uid://di0hbqp2isowd" path="res://Assets/overlay_buildings/Lumberjack_house.png" id="6_x0bxd"]
-[ext_resource type="Texture2D" uid="uid://chvcprfg3mjvw" path="res://Assets/overlay_buildings/Overlay_Housing.png" id="7_wgqti"]
-[ext_resource type="Texture2D" uid="uid://r2416202ni87" path="res://Assets/overlay_buildings/Overlay_Water.png" id="8_jvrcl"]
-[ext_resource type="Texture2D" uid="uid://myhrm1a6v2y" path="res://Assets/overlay_buildings/Mine.png" id="9_dkela"]
+[ext_resource type="Texture2D" uid="uid://c6y2wnmkdtlat" path="res://Assets/overlay_buildings/Overlay_Woods.png" id="5_p204h"]
+[ext_resource type="Texture2D" uid="uid://dqf82sc2ubats" path="res://Assets/overlay_buildings/Lumberjack_house.png" id="6_x0bxd"]
+[ext_resource type="Texture2D" uid="uid://bkm0lsl3wyp0g" path="res://Assets/overlay_buildings/Overlay_Housing.png" id="7_wgqti"]
+[ext_resource type="Texture2D" uid="uid://c4tok6rmunipn" path="res://Assets/overlay_buildings/Overlay_Water.png" id="8_jvrcl"]
+[ext_resource type="Texture2D" uid="uid://b14wctantwuix" path="res://Assets/overlay_buildings/Mine.png" id="9_dkela"]
 
 [sub_resource type="Curve2D" id="Curve2D_yukfb"]
 _data = {

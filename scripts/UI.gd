@@ -17,10 +17,12 @@ func _process(_delta: float) -> void:
 	$Control/VBoxContainer/Label_Morale.text = "Morale: " + str(snapped(100*data.morale, 1)) + "%"
 
 func _on_upgrades_button_pressed():
+	AudioPlayer.play_button_next()
 	$Control/UpgradePanel.visible = true
 	
 	
 func _on_close_button_pressed():
+	AudioPlayer.play_button_back()
 	$Control/UpgradePanel.visible = false
 	$Control/AlertFoodPanel.hide()
 	$Control/AlertWaterPanel.hide()
@@ -30,4 +32,5 @@ func _on_close_button_pressed():
 	
 
 func _on_texture_button_pressed() -> void:
+	AudioPlayer.play_button_back()
 	SceneSwitcher.change_scene("res://scenes/space.tscn")

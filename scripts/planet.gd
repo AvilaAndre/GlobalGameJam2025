@@ -171,6 +171,7 @@ func _on_oxygen_upgrade_pressed(level: int) -> void:
 	if data.oxygen_lvl == level-1 && data.oxygen_upgrade_cost[level-1] <= data.wood:
 		data.oxygen_lvl = level
 		data.wood -= data.oxygen_upgrade_cost[level-1]
+		AudioPlayer.play_success()
 
 	update_all()
 
@@ -181,6 +182,7 @@ func _on_food_upgrade_pressed(level: int) -> void:
 	if data.food_lvl == level-1 && data.food_upgrade_cost[level-1] <= data.wood:
 		data.food_lvl = level
 		data.wood -= data.food_upgrade_cost[level-1]
+		AudioPlayer.play_success()
 
 	update_all()
 
@@ -191,6 +193,7 @@ func _on_water_upgrade_pressed(level: int) -> void:
 	if data.water_lvl == level-1 && data.food_upgrade_cost[level-1] <= data.wood:
 		data.water_lvl = level
 		data.wood -= data.water_upgrade_cost[level-1]
+		AudioPlayer.play_success()
 
 	update_all()
 
@@ -201,6 +204,7 @@ func _on_wood_upgrade_pressed(level: int) -> void:
 	if data.wood_lvl == level-1 && data.food_upgrade_cost[level-1] <= data.wood:
 		data.wood_lvl = level
 		data.wood -= data.wood_upgrade_cost[level-1]
+		AudioPlayer.play_success()
 
 	update_all()
 
@@ -211,31 +215,37 @@ func _on_stone_upgrade_pressed(level: int) -> void:
 	if data.stone_lvl == level-1 && data.food_upgrade_cost[level-1] <= data.wood:
 		data.stone_lvl = level
 		data.wood -= data.stone_upgrade_cost[level-1]
+		AudioPlayer.play_success()
 
 	update_all()
 
 func _on_food_button_alert_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton && event.button_index == 1:
+		#AudioPlayer.play_button_next()
 		$"../UI/Control/AlertFoodPanel".show()
 
 
 func _on_oxygen_button_alert_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton && event.button_index == 1:
+		#AudioPlayer.play_button_next()
 		$"../UI/Control/AlertOxygenPanel".show()
 
 
 func _on_house_button_alert_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton && event.button_index == 1:
+		#AudioPlayer.play_button_next()
 		$"../UI/Control/AlertHousePanel".show()
 
 
 func _on_water_button_alert_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton && event.button_index == 1:
+		#AudioPlayer.play_button_next()
 		$"../UI/Control/AlertWaterPanel".show()
 
 
 func _on_mine_button_alert_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton && event.button_index == 1:
+		#AudioPlayer.play_button_next()
 		$"../UI/Control/AlertMinePanel".show()
 
 
@@ -246,6 +256,7 @@ func _on_alert_house_pay() -> void:
 	if data.building_alert && data.stone >= 5:
 		data.stone -= 5
 		data.building_alert = false
+		AudioPlayer.play_alert_res()
 		close_alert()
 
 func _on_alert_mine_pay() -> void:
@@ -255,6 +266,7 @@ func _on_alert_mine_pay() -> void:
 	if data.mine_alert && data.wood >= 10:
 		data.wood -= 10
 		data.mine_alert = false
+		AudioPlayer.play_alert_res()
 		close_alert()
 
 
@@ -265,6 +277,7 @@ func _on_alert_oxygen_pay() -> void:
 	if data.oxygen_alert && data.water >= 10:
 		data.water -= 10
 		data.oxygen_alert = false
+		AudioPlayer.play_alert_res()
 		close_alert()
 
 
@@ -275,6 +288,7 @@ func _on_alert_food_pay() -> void:
 	if data.food_alert && data.food >= 20:
 		data.food -= 20
 		data.food_alert = false
+		AudioPlayer.play_alert_res()
 		close_alert()
 
 func _on_alert_water_pay() -> void:
@@ -284,6 +298,7 @@ func _on_alert_water_pay() -> void:
 	if data.water_alert && data.stone >= 5:
 		data.stone -= 5
 		data.water_alert = false
+		AudioPlayer.play_alert_res()
 		close_alert()
 
 

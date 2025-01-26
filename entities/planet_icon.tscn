@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://hmkt55eyemji"]
 
-[ext_resource type="Texture2D" uid="uid://yxoetu0tukml" path="res://Assets/Island_no_bg-sheet.png" id="1_1o0e5"]
+[ext_resource type="Texture2D" uid="uid://dhgk1gbbednt7" path="res://Assets/Island_no_bg-sheet.png" id="1_1o0e5"]
 [ext_resource type="Script" path="res://scripts/planet_icon.gd" id="1_twbqu"]
 [ext_resource type="PackedScene" uid="uid://cdwafagcywems" path="res://entities/planet_info.tscn" id="3_ft6ka"]
-[ext_resource type="Texture2D" uid="uid://c0lgee3rawbrr" path="res://Assets/emote_exclamation.png" id="4_tjfql"]
-[ext_resource type="Texture2D" uid="uid://xcnkstsr8l2x" path="res://Assets/Bubble/Bubble.png" id="6_hhho1"]
+[ext_resource type="Texture2D" uid="uid://bb2e2ygpridbn" path="res://Assets/emote_exclamation.png" id="4_tjfql"]
+[ext_resource type="Texture2D" uid="uid://dw4xre164rwxh" path="res://Assets/Bubble/Bubble.png" id="6_hhho1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vp6t"]
 atlas = ExtResource("6_hhho1")
@@ -63,6 +63,7 @@ self_modulate = Color(1, 1, 1, 0.25098)
 position = Vector2(1, -17)
 scale = Vector2(0.880211, 0.880211)
 sprite_frames = SubResource("SpriteFrames_axowc")
+animation = &"burst"
 
 [node name="PlanetInfo" parent="." instance=ExtResource("3_ft6ka")]
 

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj16ggcui5mxw"]
+[gd_scene load_steps=3 format=3 uid="uid://bigyuc6r5tfg"]
 
-[ext_resource type="Texture2D" uid="uid://bvsr2yjtpwogy" path="res://Assets/emotes/pixel_style1.png" id="1_lr3n2"]
+[ext_resource type="Texture2D" uid="uid://cvg6kf5c5bpqb" path="res://Assets/emotes/pixel_style1.png" id="1_lr3n2"]
 [ext_resource type="Script" path="res://scripts/emote_bubble.gd" id="1_r1kkm"]
 
 [node name="EmojiBubble" type="Node2D"]

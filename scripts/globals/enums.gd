@@ -13,4 +13,3 @@ enum Emote {
 	QUESTION_MARK = 25,
 	MAD           = 29,
 }
-
