@@ -1,15 +1,19 @@
-[gd_scene load_steps=21 format=3 uid="uid://dm6ifjkmumjnb"]
+[gd_scene load_steps=23 format=3 uid="uid://ch5mtajg518tp"]
 
 [ext_resource type="PackedScene" uid="uid://j7auxi2knis7" path="res://entities/planet.tscn" id="1_3a05x"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="2_dnvmm"]
-[ext_resource type="Texture2D" uid="uid://5tc0gc0lkfa1" path="res://Assets/Upgrades/Upgrade.png" id="3_l375d"]
-[ext_resource type="Texture2D" uid="uid://dmedf8d43amwy" path="res://Assets/Upgrades/Exit_Button.png" id="4_nqqaw"]
+[ext_resource type="Texture2D" uid="uid://bkhgu7f5cpms1" path="res://Assets/Upgrades/Upgrade.png" id="3_l375d"]
+[ext_resource type="Texture2D" uid="uid://bp56gyexmm7al" path="res://Assets/Upgrades/Exit_Button.png" id="4_nqqaw"]
 [ext_resource type="Script" path="res://scripts/upgrade_panel.gd" id="4_pl7i5"]
-[ext_resource type="Texture2D" uid="uid://ckopyaq0hshji" path="res://Assets/Upgrades/Oxygen/Oxygen_Upgrade-sheet.png" id="5_4oxay"]
-[ext_resource type="Texture2D" uid="uid://dofosot2s1ics" path="res://Assets/Upgrades/Food/Food_Upgrade.png" id="7_k2r4c"]
-[ext_resource type="Texture2D" uid="uid://gxlwrbie2vsd" path="res://Assets/Upgrades/Water/Water_Upgrade.png" id="8_3exnu"]
-[ext_resource type="Texture2D" uid="uid://dd58qomjr56l7" path="res://Assets/Upgrades/Wood/Wood_Upgrade.png" id="8_ilebp"]
-[ext_resource type="Texture2D" uid="uid://b41kjb466a03q" path="res://Assets/arrow_w.png" id="10_msc8i"]
+[ext_resource type="Texture2D" uid="uid://dpw8o7f0x5gwn" path="res://Assets/Upgrades/Oxygen/Oxygen_Upgrade-sheet.png" id="5_4oxay"]
+[ext_resource type="Texture2D" uid="uid://dr27tfgyu7a8e" path="res://Assets/Upgrades/Food/Food_Upgrade.png" id="7_k2r4c"]
+[ext_resource type="Texture2D" uid="uid://bulvufdb0066j" path="res://Assets/Upgrades/Water/Water_Upgrade.png" id="8_3exnu"]
+[ext_resource type="Texture2D" uid="uid://cb3g86llm4xru" path="res://Assets/Upgrades/Wood/Wood_Upgrade.png" id="8_ilebp"]
+[ext_resource type="Texture2D" uid="uid://dv3q11kf74cya" path="res://Assets/arrow_w.png" id="10_msc8i"]
+[ext_resource type="Texture2D" uid="uid://bb2e2ygpridbn" path="res://Assets/emote_exclamation.png" id="11_eli5i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpwb1"]
+size = Vector2(16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7cx8"]
 atlas = ExtResource("5_4oxay")
@@ -59,6 +63,56 @@ position = Vector2(0, 20)
 texture_filter = 1
 zoom = Vector2(3, 3)
 
+[node name="FoodButtonAlert" type="Area2D" parent="."]
+visible = false
+position = Vector2(-1, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="FoodButtonAlert"]
+texture = ExtResource("11_eli5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FoodButtonAlert"]
+shape = SubResource("RectangleShape2D_kpwb1")
+
+[node name="OxygenButtonAlert" type="Area2D" parent="."]
+visible = false
+position = Vector2(76, -29)
+
+[node name="Sprite2D" type="Sprite2D" parent="OxygenButtonAlert"]
+texture = ExtResource("11_eli5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OxygenButtonAlert"]
+shape = SubResource("RectangleShape2D_kpwb1")
+
+[node name="HouseButtonAlert" type="Area2D" parent="."]
+visible = false
+position = Vector2(-51, -32)
+
+[node name="Sprite2D" type="Sprite2D" parent="HouseButtonAlert"]
+texture = ExtResource("11_eli5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseButtonAlert"]
+shape = SubResource("RectangleShape2D_kpwb1")
+
+[node name="WaterButtonAlert" type="Area2D" parent="."]
+visible = false
+position = Vector2(40, -6)
+
+[node name="Sprite2D" type="Sprite2D" parent="WaterButtonAlert"]
+texture = ExtResource("11_eli5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterButtonAlert"]
+shape = SubResource("RectangleShape2D_kpwb1")
+
+[node name="MineButtonAlert" type="Area2D" parent="."]
+visible = false
+position = Vector2(-7, -34)
+
+[node name="Sprite2D" type="Sprite2D" parent="MineButtonAlert"]
+texture = ExtResource("11_eli5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MineButtonAlert"]
+shape = SubResource("RectangleShape2D_kpwb1")
+
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("2_dnvmm")
 
@@ -71,6 +125,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Control"]
 layout_mode = 1
@@ -116,6 +171,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("3_l375d")
 
 [node name="UpgradePanel" type="Panel" parent="UI/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -330,6 +386,342 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="AlertWaterPanel" type="Panel" parent="UI/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.5
+offset_top = -128.5
+offset_right = 256.5
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CloseButton2" type="TextureButton" parent="UI/Control/AlertWaterPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.5
+offset_top = 0.5
+offset_right = 63.5
+offset_bottom = 128.5
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_nqqaw")
+
+[node name="Button" type="Button" parent="UI/Control/AlertWaterPanel"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 175.0
+offset_right = 370.0
+offset_bottom = 228.0
+text = "Pay 5 Mineral Deposit"
+
+[node name="Alert Description" type="Label" parent="UI/Control/AlertWaterPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = -52.5
+offset_right = 167.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "The well structure is not holding up too good! 
+Quickly restore it with some stone."
+
+[node name="Alert Title" type="Label" parent="UI/Control/AlertWaterPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.5
+offset_top = 24.0
+offset_right = 110.5
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "Water Alert!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AlertFoodPanel" type="Panel" parent="UI/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.5
+offset_top = -128.5
+offset_right = 256.5
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="UI/Control/AlertFoodPanel"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 175.0
+offset_right = 370.0
+offset_bottom = 228.0
+text = "Pay 20 Food"
+
+[node name="Alert Description" type="Label" parent="UI/Control/AlertFoodPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = -52.5
+offset_right = 167.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Some wild animals are eating your crops!
+Quickly feed them so they go away."
+
+[node name="Alert Title" type="Label" parent="UI/Control/AlertFoodPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.5
+offset_top = 24.0
+offset_right = 110.5
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "Food Alert!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton6" type="TextureButton" parent="UI/Control/AlertFoodPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.5
+offset_top = 0.5
+offset_right = 63.5
+offset_bottom = 128.5
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_nqqaw")
+
+[node name="AlertOxygenPanel" type="Panel" parent="UI/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.5
+offset_top = -128.5
+offset_right = 256.5
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="UI/Control/AlertOxygenPanel"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 175.0
+offset_right = 370.0
+offset_bottom = 228.0
+text = "Pay 10 Water"
+
+[node name="Alert Description" type="Label" parent="UI/Control/AlertOxygenPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = -52.5
+offset_right = 167.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Your trees are on fire!
+Quickly put out the fire with some water."
+
+[node name="Alert Title" type="Label" parent="UI/Control/AlertOxygenPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.5
+offset_top = 24.0
+offset_right = 110.5
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "Oxygen Alert!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton3" type="TextureButton" parent="UI/Control/AlertOxygenPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.5
+offset_top = 0.5
+offset_right = 63.5
+offset_bottom = 128.5
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_nqqaw")
+
+[node name="AlertMinePanel" type="Panel" parent="UI/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.5
+offset_top = -128.5
+offset_right = 256.5
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="UI/Control/AlertMinePanel"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 175.0
+offset_right = 370.0
+offset_bottom = 228.0
+text = "Pay 10 Wood"
+
+[node name="Alert Description" type="Label" parent="UI/Control/AlertMinePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = -52.5
+offset_right = 167.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "The mine structure is not holding up too well.
+Quickly restore it with some wood, otherwise
+the water will get infected!"
+
+[node name="Alert Title" type="Label" parent="UI/Control/AlertMinePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.5
+offset_top = 24.0
+offset_right = 110.5
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "Mine Alert!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton4" type="TextureButton" parent="UI/Control/AlertMinePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.5
+offset_top = 0.5
+offset_right = 63.5
+offset_bottom = 128.5
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_nqqaw")
+
+[node name="AlertHousePanel" type="Panel" parent="UI/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.5
+offset_top = -128.5
+offset_right = 256.5
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="UI/Control/AlertHousePanel"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 175.0
+offset_right = 370.0
+offset_bottom = 228.0
+text = "Pay 5 Mineral Deposit"
+
+[node name="Alert Description" type="Label" parent="UI/Control/AlertHousePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = -52.5
+offset_right = 167.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "The buildings in your colony are collapsing!
+Fix them to not get your people railed up."
+
+[node name="Alert Title" type="Label" parent="UI/Control/AlertHousePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.5
+offset_top = 24.0
+offset_right = 110.5
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "House Alert!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton5" type="TextureButton" parent="UI/Control/AlertHousePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.5
+offset_top = 0.5
+offset_right = 63.5
+offset_bottom = 128.5
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_nqqaw")
+
 [node name="TextureButton" type="TextureButton" parent="UI/Control"]
 layout_mode = 1
 anchors_preset = 8
@@ -346,9 +738,19 @@ grow_vertical = 2
 texture_normal = ExtResource("10_msc8i")
 stretch_mode = 0
 
+[connection signal="input_event" from="FoodButtonAlert" to="Planet" method="_on_food_button_alert_input_event"]
+[connection signal="input_event" from="OxygenButtonAlert" to="Planet" method="_on_oxygen_button_alert_input_event"]
+[connection signal="input_event" from="HouseButtonAlert" to="Planet" method="_on_house_button_alert_input_event"]
+[connection signal="input_event" from="WaterButtonAlert" to="Planet" method="_on_water_button_alert_input_event"]
+[connection signal="input_event" from="MineButtonAlert" to="Planet" method="_on_mine_button_alert_input_event"]
 [connection signal="pressed" from="UI/Control/UpgradesButton" to="UI" method="_on_upgrades_button_pressed"]
 [connection signal="pressed" from="UI/Control/UpgradePanel/CloseButton" to="UI" method="_on_close_button_pressed"]
 [connection signal="pressed" from="UI/Control/UpgradePanel/TabContainer/Resource_tab_Button" to="UI/Control/UpgradePanel" method="_on_resource_tab_button_pressed"]
 [connection signal="pressed" from="UI/Control/UpgradePanel/TabContainer/Event_tab_Button" to="UI/Control/UpgradePanel" method="_on_event_tab_button_pressed"]
 [connection signal="pressed" from="UI/Control/UpgradePanel/TabContainer/Overview_tab_Button" to="UI/Control/UpgradePanel" method="_on_overview_tab_button_pressed"]
+[connection signal="pressed" from="UI/Control/AlertWaterPanel/CloseButton2" to="UI" method="_on_close_button_pressed"]
+[connection signal="pressed" from="UI/Control/AlertFoodPanel/CloseButton6" to="UI" method="_on_close_button_pressed"]
+[connection signal="pressed" from="UI/Control/AlertOxygenPanel/CloseButton3" to="UI" method="_on_close_button_pressed"]
+[connection signal="pressed" from="UI/Control/AlertMinePanel/CloseButton4" to="UI" method="_on_close_button_pressed"]
+[connection signal="pressed" from="UI/Control/AlertHousePanel/CloseButton5" to="UI" method="_on_close_button_pressed"]
 [connection signal="pressed" from="UI/Control/TextureButton" to="UI" method="_on_texture_button_pressed"]

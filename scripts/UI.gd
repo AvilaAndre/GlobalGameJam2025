@@ -19,6 +19,11 @@ func _on_upgrades_button_pressed():
 	
 func _on_close_button_pressed():
 	$Control/UpgradePanel.visible = false
+	$Control/AlertFoodPanel.hide()
+	$Control/AlertWaterPanel.hide()
+	$Control/AlertOxygenPanel.hide()
+	$Control/AlertHousePanel.hide()
+	$Control/AlertMinePanel.hide()
 	
 
 func _on_texture_button_pressed() -> void:

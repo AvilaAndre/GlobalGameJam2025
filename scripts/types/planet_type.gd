@@ -48,4 +48,5 @@ func _init(id_val: int, x: float, y: float) -> void:
 	self.water_alert = false
 	self.oxygen_alert = false
 	self.mine_alert = false
+	self.building_alert = false
 	alert_timeout_time = 0

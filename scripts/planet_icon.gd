@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 	$InfoPanel/VBoxContainer/FoodLabel.text = "Food: " + str(snapped(data.food, 0.1))
 	$InfoPanel/VBoxContainer/OxygenLabel.text = "Oxygen: " + str(snapped(data.oxygen, 0.1))
 	$InfoPanel/VBoxContainer/WaterLabel.text = "Water: " + str(snapped(data.water, 1))
-	if(!data.water_alert && !data.mine_alert && !data.food_alert && !data.oxygen_alert):
+	if(!data.water_alert && !data.mine_alert && !data.food_alert && !data.oxygen_alert && !data.building_alert):
 		$TextureRect.hide()
 	else: 
 		$TextureRect.show()
