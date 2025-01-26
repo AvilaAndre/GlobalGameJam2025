@@ -56,6 +56,16 @@ func _process(_delta: float) -> void:
 		elif $population.get_child_count() >= 0:
 			kill_citizen()
 		update_island()
+	
+	check_alert()
+	
+func check_alert() -> void:
+	$"../FoodButtonAlert".visible = $PlanetInfo.get_data().food_alert
+	$"../WaterButtonAlert".visible = $PlanetInfo.get_data().water_alert
+	$"../OxygenButtonAlert".visible = $PlanetInfo.get_data().oxygen_alert
+	$"../HouseButtonAlert".visible = $PlanetInfo.get_data().building_alert
+	# Changed after having the mine sprite
+	$"../MineButtonAlert".visible = $PlanetInfo.get_data().mine_alert
 
 
 func info() -> Node2D:
@@ -203,3 +213,27 @@ func _on_stone_upgrade_pressed(level: int) -> void:
 		data.wood -= data.stone_upgrade_cost[level-1]
 
 	update_all()
+
+func _on_food_button_alert_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton && event.button_index == 1:
+		$"../UI/Control/AlertFoodPanel".show()
+
+
+func _on_oxygen_button_alert_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton && event.button_index == 1:
+		$"../UI/Control/AlertOxygenPanel".show()
+
+
+func _on_house_button_alert_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton && event.button_index == 1:
+		$"../UI/Control/AlertHousePanel".show()
+
+
+func _on_water_button_alert_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton && event.button_index == 1:
+		$"../UI/Control/AlertWaterPanel".show()
+
+
+func _on_mine_button_alert_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton && event.button_index == 1:
+		$"../UI/Control/AlertMinePanel".show()

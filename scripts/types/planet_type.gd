@@ -85,7 +85,7 @@ func _init(id_val: int, x: float, y: float, color: String) -> void:
 	self.oxygen_alert = false
 	self.mine_alert = false
 	self.alert_timeout_time = 0
-
+	self.building_alert = false
 
 func set_food(new_value: float) -> void:
 	self.food = max(0.0, new_value)
