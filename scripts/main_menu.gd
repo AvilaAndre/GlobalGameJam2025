@@ -12,6 +12,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
+	$"/root/Autoload".running = true
 	AudioPlayer.play_button_next()
 	SceneSwitcher.change_scene("res://scenes/space.tscn")
 
