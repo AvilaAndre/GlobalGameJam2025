@@ -12,4 +12,6 @@ func _process(delta):
 
 
 func _on_go_home_button_pressed():
+	$"/root/Autoload".reset()
 	SceneSwitcher.change_scene("res://scenes/main_menu.tscn")
+	
