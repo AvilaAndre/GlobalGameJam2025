@@ -97,7 +97,7 @@ func on_alert_timer_timeout(p: PlanetType, t: Timer):
 	var coin_flip = randi_range(0,1)
 	# On timeout check for alert
 	if (coin_flip == 1 && !(p.food_alert || p.water_alert || p.oxygen_alert || p.building_alert || p.mine_alert)):
-		var arr = []
+		var arr : Array[int] = []
 		if (p.food_lvl != 0):
 			arr.push_back(0)
 		if (p.water_lvl != 0):
@@ -108,20 +108,22 @@ func on_alert_timer_timeout(p: PlanetType, t: Timer):
 			arr.push_back(3)
 		if(p.housing_lvl != 0):
 			arr.push_back(4)
-		var alert_type = arr.pick_random()
-		match alert_type:
-			0:
-				p.food_alert = true
-			1:
-				p.water_alert = true
-			2: 
-				p.oxygen_alert = true
-			3:
-				p.mine_alert = true
-			4:
-				p.building_alert = true
-		#print("[" + str(p.id) + "] Alert Incoming type: " + str(alert_type))
-		start_danger_timer(p, t)
+		if !arr.is_empty():
+			var alert_type = arr.pick_random()
+			match alert_type:
+				0:
+					p.food_alert = true
+				1:
+					p.water_alert = true
+				2: 
+					p.oxygen_alert = true
+				3:
+					p.mine_alert = true
+				4:
+					p.building_alert = true
+			start_danger_timer(p, t)
+		else:
+			start_alert_timer(p, t)
 	elif p.food_alert || p.water_alert || p.oxygen_alert || p.building_alert || p.mine_alert:
 		# If it goes here means that time is over and danger was not taken care of
 		if p.food_alert:
