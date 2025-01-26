@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=3 uid="uid://c7sy5dafirmnf"]
 
-[ext_resource type="FontFile" uid="uid://cyw4mycmpmecq" path="res://Assets/fonts/leaf1.TTF" id="1_kchuh"]
-[ext_resource type="FontFile" uid="uid://c65pf8ecmokg8" path="res://Assets/fonts/Nature Impact Demo.ttf" id="1_qg4up"]
+[ext_resource type="FontFile" uid="uid://bis83c8bels0u" path="res://Assets/fonts/leaf1.TTF" id="1_kchuh"]
+[ext_resource type="FontFile" uid="uid://bexnwlo4v6ryw" path="res://Assets/fonts/Nature Impact Demo.ttf" id="1_qg4up"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ttcrk"]
-[ext_resource type="Texture2D" uid="uid://ceb1t8vhj635a" path="res://Assets/buttonLong_beige_pressed.png" id="4_5e3r4"]
-[ext_resource type="Texture2D" uid="uid://bbn4mgotf2htn" path="res://Assets/buttonLong_beige.png" id="5_nnt1x"]
-[ext_resource type="AudioStream" uid="uid://bp5vttu180un7" path="res://Sound/GGJ25 Sound Ambient.wav" id="6_cf6x3"]
-[ext_resource type="Texture2D" uid="uid://dd0sjgj6fgp2u" path="res://Assets/Upgrades/Exit_Button.png" id="6_ppxel"]
+[ext_resource type="Texture2D" uid="uid://dfetm4paqfj7l" path="res://Assets/buttonLong_beige_pressed.png" id="4_5e3r4"]
+[ext_resource type="Texture2D" uid="uid://bv4t847e5f14w" path="res://Assets/buttonLong_beige.png" id="5_nnt1x"]
+[ext_resource type="AudioStream" uid="uid://d30jw8vv20xem" path="res://Sound/GGJ25 Sound Ambient.wav" id="6_cf6x3"]
+[ext_resource type="Texture2D" uid="uid://dmedf8d43amwy" path="res://Assets/Upgrades/Exit_Button.png" id="6_ppxel"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xobkk"]
 
@@ -31,6 +31,7 @@ texture = ExtResource("4_5e3r4")
 texture = ExtResource("5_nnt1x")
 
 [node name="MainMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

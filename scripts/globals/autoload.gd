@@ -1,6 +1,6 @@
 extends Node2D
 
-var running : bool = true
+var running: bool = true
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var alertTimer: Timer = Timer.new()
 @onready var stats_timer: Timer = Timer.new()
@@ -26,7 +26,7 @@ func _ready() -> void:
 	add_child(alertTimer)
 	start_alert_timer(planets[0])
 
-	stats_timer.set_wait_time(1.0)
+	stats_timer.set_wait_time(5.0)
 	stats_timer.timeout.connect(on_stats_timer_timeout)
 	add_child(stats_timer)
 	stats_timer.start()
@@ -37,30 +37,35 @@ func _process(delta: float) -> void:
 		for planet in planets.values():
 
 			# production
-			planet.set_food(
-				planet.food + planet.food_production_rates[planet.food_lvl] * (min(1, planet.population)) * planet.morale * delta)
-			planet.set_oxygen(
-				planet.oxygen + planet.food_production_rates[planet.oxygen_lvl] * (min(1, planet.population)) * planet.morale * delta)
-			planet.set_water(
-				planet.water + planet.food_production_rates[planet.water_lvl] * (min(1, planet.population)) * planet.morale * delta)
+			planet.food_delta = planet.food_production_rates[planet.food_lvl] * (min(1, planet.population)) * planet.morale
+			planet.oxygen_delta = planet.oxygen_production_rates[planet.oxygen_lvl] * (min(1, planet.population)) * planet.morale
+			planet.water_delta = planet.water_production_rates[planet.water_lvl] * (min(1, planet.population)) * planet.morale
+			planet.wood_delta = planet.wood_production_rates[planet.wood_lvl] * (min(1, planet.population)) * planet.morale
 
-			planet.set_morale(min(1.0, planet.morale + delta * 0.005))
 
 			# consuming
-			planet.set_food(planet.food - planet.population * delta * 0.1)
-			planet.set_oxygen(planet.oxygen - planet.population * delta * 0.1)
-			planet.set_water(planet.water - planet.population * delta * 0.1)
+			planet.food_delta -= planet.population * 0.1
+			planet.oxygen_delta -= planet.population * 0.1
+			planet.water_delta -= planet.population * 0.1
 
 
+			planet.set_morale(min(1.0, planet.morale + delta * 0.005))
 			planet.housing_lvl = min(planet.population/10, 3)
+
+			planet.set_food(planet.food + planet.food_delta * delta)
+			planet.set_oxygen(planet.oxygen + planet.oxygen_delta * delta)
+			planet.set_water(planet.water + planet.water_delta * delta)
 
 
 func on_stats_timer_timeout() -> void:
 	if running:
 		for planet in planets.values():
-			if planet.food == 0 || planet.water == 0 || planet.oxygen == 0:
+			if planet.food == 0 || planet.water == 0 || planet.oxygen == 0 || planet.morale < 0.2:
 				planet.set_population(planet.population - 1)
 				planet.set_morale(planet.morale - 0.1)
+			elif planet.food > planet.population && planet.water > planet.population && planet.oxygen > planet.population && planet.morale > 0.75:
+				planet.set_population(planet.population + 1)
+
 
 
 func set_planet_alert_timeout(p: PlanetType, x : PlanetType.alert_timeout_type):
