@@ -29,5 +29,5 @@ func _on_close_button_pressed():
 	$Control/AlertMinePanel.hide()
 	
 
-func _on_texture_button_pressed() -> void:
+func _on_back_button_pressed() -> void:
 	SceneSwitcher.change_scene("res://scenes/space.tscn")

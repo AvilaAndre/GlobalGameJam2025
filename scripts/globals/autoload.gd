@@ -52,7 +52,8 @@ func _process(delta: float) -> void:
 
 
 			planet.set_morale(min(1.0, planet.morale + delta * 0.005))
-			planet.housing_lvl = min(planet.population/10, 3)
+			var pop_level = min(planet.population/10, 3)
+			planet.housing_lvl = max(planet.housing_lvl, pop_level) #even if everyone dies the houses stay there
 
 			planet.set_food(planet.food + planet.food_delta * delta)
 			planet.set_oxygen(planet.oxygen + planet.oxygen_delta * delta)
@@ -64,10 +65,10 @@ func _process(delta: float) -> void:
 func on_stats_timer_timeout() -> void:
 	if running:
 		for planet in planets.values():
-			if planet.food == 0 || planet.water == 0 || planet.oxygen == 0 || planet.morale < 0.2:
+			if planet.food == 0 || planet.water == 0 || planet.oxygen == 0 || planet.morale < 0.3:
 				planet.set_population(planet.population - 1)
 				planet.set_morale(planet.morale - 0.05)
-			elif planet.food > planet.population && planet.water > planet.population && planet.oxygen > planet.population && planet.morale > 0.75:
+			elif (planet.food * 10) > planet.population && (planet.water * 5) > planet.population && planet.oxygen > planet.population && planet.morale > 0.75:
 				planet.set_population(planet.population + 1)
 
 

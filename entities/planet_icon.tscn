@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://hmkt55eyemji"]
+[gd_scene load_steps=14 format=3 uid="uid://hmkt55eyemji"]
 
 [ext_resource type="Texture2D" uid="uid://dn87kswmqfuw6" path="res://Assets/Island_no_bg-sheet.png" id="1_1o0e5"]
 [ext_resource type="Script" path="res://scripts/planet_icon.gd" id="1_twbqu"]
 [ext_resource type="PackedScene" uid="uid://cdwafagcywems" path="res://entities/planet_info.tscn" id="3_ft6ka"]
 [ext_resource type="Texture2D" uid="uid://7855aogwshpx" path="res://Assets/emote_exclamation.png" id="4_tjfql"]
 [ext_resource type="Texture2D" uid="uid://cvmgln5g27wkm" path="res://Assets/Bubble/Bubble.png" id="6_hhho1"]
+[ext_resource type="Script" path="res://entities/game_over_canvas.gd" id="6_l3vx6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vp6t"]
 atlas = ExtResource("6_hhho1")
@@ -50,6 +51,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_regtf"]
 radius = 43.0116
 
+[sub_resource type="Theme" id="Theme_s5u2y"]
+
 [node name="PlanetIcon" type="Node2D"]
 script = ExtResource("1_twbqu")
 
@@ -63,6 +66,7 @@ self_modulate = Color(1, 1, 1, 0.25098)
 position = Vector2(1, -17)
 scale = Vector2(0.880211, 0.880211)
 sprite_frames = SubResource("SpriteFrames_axowc")
+animation = &"burst"
 
 [node name="PlanetInfo" parent="." instance=ExtResource("3_ft6ka")]
 
@@ -125,6 +129,44 @@ offset_right = 23.0
 offset_bottom = -60.0
 texture = ExtResource("4_tjfql")
 
+[node name="GameOverCanvas" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("6_l3vx6")
+
+[node name="GameOver" type="PanelContainer" parent="GameOverCanvas"]
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -90.5
+offset_right = 149.0
+offset_bottom = 90.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverCanvas/GameOver"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="GameOverCanvas/GameOver/VBoxContainer"]
+layout_mode = 2
+text = "You let this colony die!"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="GameOverCanvas/GameOver/VBoxContainer"]
+layout_mode = 2
+text = "You reached a population of:
+"
+
+[node name="Go_Home_Button" type="Button" parent="GameOverCanvas/GameOver/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_s5u2y")
+text = "Back to Home Screen"
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="GameOverCanvas/GameOver/VBoxContainer/Go_Home_Button" to="GameOverCanvas" method="_on_go_home_button_pressed"]

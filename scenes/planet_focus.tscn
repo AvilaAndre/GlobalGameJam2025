@@ -827,7 +827,7 @@ grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("4_nqqaw")
 
-[node name="TextureButton" type="TextureButton" parent="UI/Control"]
+[node name="BackButton" type="TextureButton" parent="UI/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -863,4 +863,4 @@ stretch_mode = 0
 [connection signal="pressed" from="UI/Control/AlertMinePanel/CloseButton4" to="UI" method="_on_close_button_pressed"]
 [connection signal="pressed" from="UI/Control/AlertHousePanel/Button" to="Planet" method="_on_alert_house_pay"]
 [connection signal="pressed" from="UI/Control/AlertHousePanel/CloseButton5" to="UI" method="_on_close_button_pressed"]
-[connection signal="pressed" from="UI/Control/TextureButton" to="UI" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="UI/Control/BackButton" to="UI" method="_on_back_button_pressed"]

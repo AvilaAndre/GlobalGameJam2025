@@ -2,14 +2,19 @@ extends Node2D
 
 var is_dragging = false
 var drag_offset = Vector2()
+var is_dead = false  # To prevent multiple triggers
 
 func _ready() -> void:
 	$InfoPanel.visible = false
+	$Bubble.visible = true  # Ensure the bubble is visible initially
+	$Area2D.monitoring = true  # Keep the Area2D monitoring for overlaps
 
 func _process(_delta: float) -> void:
 	var data = info().get_data()
 	if data == null:
 		return
+	
+	# Update info panel
 	$InfoPanel/VBoxContainer/IdLabel.text = "ID: " + str(data.id)
 	$InfoPanel/VBoxContainer/PopulationLabel.text = "Population: " + str(data.population)
 	$InfoPanel/VBoxContainer/FoodLabel.text = "Food: " + str(snapped(data.food, 0.1))
@@ -20,10 +25,28 @@ func _process(_delta: float) -> void:
 		$TextureRect.hide()
 	else: 
 		$TextureRect.show()
+
+	# Check if the planet should "die"
+	if data.population <= 0 and not is_dead:
+		trigger_bubble_burst()
+
+	# Handle dragging
 	if is_dragging:
 		check_for_merge()
 
+func trigger_bubble_burst() -> void:
+	is_dead = true  # Prevent multiple triggers
+	$Bubble.play("burst")  # Play the burst animation
+	$Bubble.connect("animation_finished", Callable(self, "_on_bubble_burst_finished"))
+	$Area2D.visible = false  
+	$InfoPanel.visible = false  
 
+func _on_bubble_burst_finished() -> void:
+	$Bubble.visible = false  # Hide the bubble after the animation
+	$GameOverCanvas.visible = true
+	
+
+# Other functions (dragging, merging, etc.) remain unchanged
 func info() -> Node2D:
 	return $PlanetInfo
 
@@ -42,73 +65,47 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 			if Autoload.planets.has(info().id):
 				switch_to_planet(info().id)
 		if event.pressed:
-			# Start dragging
 			is_dragging = true
 			drag_offset = global_position - get_global_mouse_position()
 		else:
-			# Stop dragging
 			is_dragging = false
-			# Handle drop/merge logic
-
 	elif event is InputEventMouseMotion and is_dragging and Input.is_action_pressed("mouse_left"):
-		# Update position while dragging
 		global_position = get_global_mouse_position() + drag_offset
 		var data = info().get_data()
 		if data:
 			data.position = global_position
 
-		
 func check_for_merge() -> void:
-	# Check if the planet overlaps with another planet
 	var area = $Area2D
 	var colliding_planets = area.get_overlapping_areas()
-	print("Colliding with", colliding_planets)
 	for planet_area in colliding_planets:
-		print("Planet area:", planet_area)
 		var planet = planet_area.get_parent()
-		print("Planet:", planet)
-		if planet != self and planet is Node2D:  # Ensure it's a valid planet
-			print("Merging with planet: ", planet.info().id)
+		if planet != self and planet is Node2D:
 			merge_with(planet)
 
 func merge_with(other_planet: Node2D) -> void:
-	# Get data from both planets
 	var my_data = info().get_data()
 	var other_data = other_planet.info().get_data()
 
-	print("Merging Planet ID: ", my_data.id, " with Planet ID: ", other_data.id)
-	print("My data: ", my_data)
-	print("Other data: ", other_data)
-	
-	# Sum of resources
 	my_data.food += other_data.food
 	my_data.water += other_data.water
 	my_data.oxygen += other_data.oxygen
 	my_data.population += other_data.population
-
-	# Set the maximum levels of each resource
 	my_data.food_lvl = max(my_data.food_lvl, other_data.food_lvl)
 	my_data.oxygen_lvl = max(my_data.oxygen_lvl, other_data.oxygen_lvl)
 	my_data.water_lvl = max(my_data.water_lvl, other_data.water_lvl)
 	my_data.wood_lvl = max(my_data.wood_lvl, other_data.wood_lvl)
 	my_data.housing_lvl = max(my_data.housing_lvl, other_data.housing_lvl)
-	
-	# Merge alerts: if either planet has the alert, set it to true
 	my_data.planet_alert = my_data.planet_alert or other_data.planet_alert
 	my_data.food_alert = my_data.food_alert or other_data.food_alert
 	my_data.water_alert = my_data.water_alert or other_data.water_alert
 	my_data.oxygen_alert = my_data.oxygen_alert or other_data.oxygen_alert
 	my_data.mine_alert = my_data.mine_alert or other_data.mine_alert
-	
+
 	for dinosaur in other_data.dinosaur_types:
 		if not my_data.dinosaur_types.has(dinosaur):
 			my_data.dinosaur_types.append(dinosaur)
 			
 	my_data.morale = (my_data.morale + other_data.morale) / 2
-	
 	other_planet.queue_free()
 	Autoload.planets.erase(other_data.id)
-	
-	
-	# Additional debug to show the final merged result
-	print("Merged planet data: ", my_data)
