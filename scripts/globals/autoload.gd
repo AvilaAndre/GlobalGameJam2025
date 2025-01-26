@@ -56,6 +56,60 @@ func _ready() -> void:
 	add_child(stats_timer)
 	stats_timer.start()
 
+func reset() -> void:
+	# Reset general state variables
+	running = true
+	current_score = 0
+	max_score = 0
+
+	# Reinitialize planets dictionary
+	planets.clear()
+	planets = {
+		0: PlanetType.new(0, 0, 0, "blue"),
+		2: PlanetType.new(2, -100.0, 200.0, "red"),
+		1: PlanetType.new(1, -300.0, 0, "yellow"),
+		3: PlanetType.new(3, 240.0, -200.0, "green"),
+		4: PlanetType.new(4, 300.0, 100.0, "blue"),
+		5: PlanetType.new(5, -50.0, -200.0, "red"),
+	}
+	
+	planets[0].food = 100
+	planets[0].population = 5
+	planets[0].food_lvl = 1
+	planets[0].oxygen_lvl = 1
+
+	planets[1].population = 2
+	planets[1].food_lvl = 1
+	planets[1].water_lvl = 1
+
+	planets[2].population = 4
+	planets[2].food_lvl = 2
+
+	planets[3].food = 50
+	planets[3].population = 1
+	planets[3].oxygen_lvl = 2
+	planets[3].wood_lvl = 1
+
+	planets[4].population = 1
+	planets[4].stone_lvl = 1
+
+	planets[5].food = 90
+	planets[5].population = 4
+	planets[5].oxygen_lvl = 1
+	planets[5].water_lvl = 2
+
+	# Reset any other relevant variables if needed
+	rng.randomize()  # Reinitialize RNG if necessary
+	stats_timer.stop()  # Stop the stats timer if running
+	for planet in planets.values():
+		planet.food_alert = false
+		planet.water_alert = false
+		planet.oxygen_alert = false
+		planet.building_alert = false
+		planet.mine_alert = false
+		planet.morale = 1.0
+		planet.housing_lvl = 0
+
 
 func _process(delta: float) -> void:
 	if running:

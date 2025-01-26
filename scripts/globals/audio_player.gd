@@ -7,6 +7,7 @@ const fx_alert_start = preload("res://Sound/GGJ25 - Alert Start.wav")
 const fx_alert_res = preload("res://Sound/GGJ25 - Alert Resolved.wav")
 const fx_alert_unres = preload("res://Sound/GGJ25 - Alert UnResolved.wav")
 const fx_success = preload("res://Sound/GGJ25 Success.wav")
+const fx_merge = preload("res://Sound/104944__glaneur-de-sons__bubble-5.wav")
 
 func _play_music(music: AudioStream, volume = 0.0):
 	if stream == music:
@@ -52,3 +53,6 @@ func play_alert_unres():
 
 func play_success():
 	play_FX(fx_success)
+	
+func play_merge():
+	play_FX(fx_merge)
