@@ -1,6 +1,6 @@
 extends Node2D
 
-var running: bool = true
+var running: bool = false
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var stats_timer: Timer = Timer.new()
 
@@ -58,7 +58,7 @@ func _ready() -> void:
 
 func reset() -> void:
 	# Reset general state variables
-	running = true
+	running = false
 	current_score = 0
 	max_score = 0
 
