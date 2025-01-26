@@ -14,4 +14,5 @@ func _process(delta: float) -> void:
 
 
 func _on_texture_button_pressed() -> void:
+	$"/root/Autoload".reset()
 	SceneSwitcher.change_scene("res://scenes/main_menu.tscn")
