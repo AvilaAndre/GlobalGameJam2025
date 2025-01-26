@@ -70,6 +70,7 @@ func trigger_bubble_burst() -> void:
 func _on_bubble_burst_finished() -> void:
 	$Bubble.visible = false  # Hide the bubble after the animation
 	$GameOverCanvas.visible = true
+	$GameOverCanvas/GameOver/VBoxContainer/Score.text = "Your reached a maximum population of " + str($"/root/Autoload".max_score)
 	
 
 # Other functions (dragging, merging, etc.) remain unchanged

@@ -8,7 +8,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$VBoxContainer/CurrentScore.text = "Current Population: " + str($"/root/Autoload".current_score)
+	$VBoxContainer/MaxScore.text = "Your max score: " + str($"/root/Autoload".max_score)
+
 
 
 func _on_texture_button_pressed() -> void:

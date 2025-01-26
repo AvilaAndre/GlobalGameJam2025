@@ -4,6 +4,9 @@ var running: bool = true
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var stats_timer: Timer = Timer.new()
 
+var max_score: int = 0  # Player's highest score during the run
+var current_score: int = 0  # Current total population score
+
 var planets: Dictionary = {
 	0: PlanetType.new(0, 0, 0, "blue"),
 	2: PlanetType.new(2, -100.0, 200.0, "red"),
@@ -70,8 +73,14 @@ func on_stats_timer_timeout() -> void:
 				planet.set_morale(planet.morale - 0.05)
 			elif (planet.food * 10) > planet.population && (planet.water * 5) > planet.population && planet.oxygen > planet.population && planet.morale > 0.75:
 				planet.set_population(planet.population + 1)
+		update_score()
 
-
+func update_score() -> void:
+	current_score = 0
+	for planet in planets.values():
+		current_score += planet.population
+	max_score = max(max_score, current_score)
+	print("Current Score:", current_score, "Max Score:", max_score)
 
 func set_planet_alert_timeout(p: PlanetType, x : PlanetType.alert_timeout_type):
 	match x:
