@@ -4,6 +4,9 @@ var running: bool = true
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var stats_timer: Timer = Timer.new()
 
+var max_score: int = 0  # Player's highest score during the run
+var current_score: int = 0  # Current total population score
+
 var planets: Dictionary = {
 	0: PlanetType.new(0, 0, 0, "blue"),
 	2: PlanetType.new(2, -100.0, 200.0, "red"),
@@ -18,6 +21,27 @@ func _ready() -> void:
 	planets[0].population = 5
 	planets[0].food_lvl = 1
 	planets[0].oxygen_lvl = 1
+	
+	planets[1].population = 2
+	planets[1].food_lvl = 1
+	planets[1].water_lvl = 1
+
+	planets[2].population = 4
+	planets[2].food_lvl = 2
+
+	planets[3].food = 50
+	planets[3].population = 1
+	planets[3].oxygen_lvl = 2
+	planets[3].wood_lvl = 1
+
+	planets[4].population = 1
+	planets[4].stone_lvl = 1
+
+	planets[5].food = 90
+	planets[5].population = 4
+	planets[5].oxygen_lvl = 1
+	planets[5].water_lvl = 2
+
 
 	rng.randomize()
 	for i in range(planets.size()):
@@ -52,7 +76,8 @@ func _process(delta: float) -> void:
 
 
 			planet.set_morale(min(1.0, planet.morale + delta * 0.005))
-			planet.housing_lvl = min(planet.population/10, 3)
+			var pop_level = min(planet.population/10, 3)
+			planet.housing_lvl = max(planet.housing_lvl, pop_level) #even if everyone dies the houses stay there
 
 			planet.set_food(planet.food + planet.food_delta * delta)
 			planet.set_oxygen(planet.oxygen + planet.oxygen_delta * delta)
@@ -64,13 +89,19 @@ func _process(delta: float) -> void:
 func on_stats_timer_timeout() -> void:
 	if running:
 		for planet in planets.values():
-			if planet.food == 0 || planet.water == 0 || planet.oxygen == 0 || planet.morale < 0.2:
+			if planet.food == 0 || planet.water == 0 || planet.oxygen == 0 || planet.morale < 0.3:
 				planet.set_population(planet.population - 1)
 				planet.set_morale(planet.morale - 0.05)
-			elif planet.food > planet.population && planet.water > planet.population && planet.oxygen > planet.population && planet.morale > 0.75:
+			elif (planet.food * 10) > planet.population && (planet.water * 5) > planet.population && planet.oxygen > planet.population && planet.morale > 0.75:
 				planet.set_population(planet.population + 1)
+		update_score()
 
-
+func update_score() -> void:
+	current_score = 0
+	for planet in planets.values():
+		current_score += planet.population
+	max_score = max(max_score, current_score)
+	print("Current Score:", current_score, "Max Score:", max_score)
 
 func set_planet_alert_timeout(p: PlanetType, x : PlanetType.alert_timeout_type):
 	match x:

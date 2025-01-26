@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7sy5dafirmnf"]
+[gd_scene load_steps=17 format=3 uid="uid://c7sy5dafirmnf"]
 
 [ext_resource type="FontFile" uid="uid://f2utpf5shd76" path="res://Assets/fonts/leaf1.TTF" id="1_kchuh"]
 [ext_resource type="FontFile" uid="uid://261qfglr4ny2" path="res://Assets/fonts/Nature Impact Demo.ttf" id="1_qg4up"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c4iw1wpunl1hu" path="res://Assets/buttonLong_beige.png" id="5_nnt1x"]
 [ext_resource type="Texture2D" uid="uid://bp56gyexmm7al" path="res://Assets/Upgrades/Exit_Button.png" id="6_ppxel"]
 [ext_resource type="AudioStream" uid="uid://256ii1oqly2n" path="res://Sound/GGJ25 - UI Next.wav" id="8_ldpnj"]
+[ext_resource type="Texture2D" uid="uid://b6gllx5wmlalv" path="res://Assets/backgrounds/Space_Stars2.png" id="8_udl1y"]
 [ext_resource type="AudioStream" uid="uid://cijqb35ocloh5" path="res://Sound/GGJ25 - UI Back.wav" id="9_f05pv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xobkk"]
@@ -148,6 +149,28 @@ stream = ExtResource("8_ldpnj")
 
 [node name="AudioStreamPlayer2D Back" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_f05pv")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+show_behind_parent = true
+scroll_offset = Vector2(321, 188)
+repeat_size = Vector2(64, 64)
+autoscroll = Vector2(0, 16)
+repeat_times = 40
+ignore_camera_scroll = true
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_udl1y")
+stretch_mode = 1
 
 [connection signal="pressed" from="MenuCanvas/VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuCanvas/VBoxContainer/GuideButton" to="." method="_on_guide_button_pressed"]
